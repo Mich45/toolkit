@@ -4,8 +4,11 @@
 
 
 @layer components {
-  .btn-primary{
-    @apply h-8 w-52 bg-emerald-500 outline-none text-white rounded
+  .btn-primary {
+    @apply h-60 w-64 bg-[#353638] outline-none text-white rounded cursor-pointer
+  }
+  .tag {
+    @apply h-8 w-auto bg-[#353638] font-bold text-xs cursor-pointer outline-none flex items-center place-content-center text-gray-300 rounded
   }
 }
 
@@ -14,10 +17,10 @@
 @layer base {
     @font-face {
       font-family: "Flama";
-      src: url("../assets/Flama-Regular.otf") format("opentype") ;
+      src: url("../assets/Inter-Regular.ttf") format("truetype") ;
     }
 
-  html{
-    font-family: "Flama", system-ui, sans-serif;
+  html {
+    font-family: "Flama", system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   }
 }
