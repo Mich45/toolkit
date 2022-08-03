@@ -11,7 +11,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="w-full bg-[#080910] h-full content-center ">
-        <section className="">
+        <section className=" py-10">
           <div className="flex items-center place-content-center p-5">
             <div className="">
               <h1 className="text-6xl mt-10 py-2 text-emerald-500 font-bold ">
@@ -21,7 +21,7 @@ const Home: NextPage = () => {
           </div>
           <div className="flex items-center place-content-center p-5">
             <div className=" w-3/5 ">
-              <p className=" pb-12 text-gray-500 text-center">
+              <p className=" pb-12 text-gray-500 font-semibold text-center">
                 Explore our comprehensive list of awesome web tools for your
                 day-to-day programming. Explore our comprehensive list of
                 awesome web tools for your day-to-day programming Explore our
