@@ -17,7 +17,11 @@
       src: url("../assets/Inter-Regular.ttf") format("truetype") ;
     }
 
-  html {
+  html { 
     font-family: "Flama", system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  }
+
+  ::selection{
+    color: purple; 
   }
 }
