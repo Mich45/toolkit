@@ -5,10 +5,10 @@
 
 @layer components {
   .btn-primary {
-    @apply h-60 w-64 bg-[#353638] outline-none text-white rounded cursor-pointer
+    @apply h-60 w-64 bg-[#080910] outline-none text-white rounded cursor-pointer
   }
   .tag {
-    @apply h-8 w-auto bg-[#353638] font-bold text-xs cursor-pointer outline-none flex items-center place-content-center text-gray-300 rounded
+    @apply h-8 w-auto bg-[#2a2d32] font-bold text-gray-200 text-xs cursor-pointer outline-none flex items-center place-content-center text-gray-300 rounded
   }
 }
 
