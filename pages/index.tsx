@@ -1,7 +1,21 @@
+import React, { useState, useEffect } from 'react';
 import type { NextPage } from "next";
 import Head from "next/head";
+import Preview from '../components/Preview'
 
 const Home: NextPage = () => {
+  const [data, setData] = useState([]);
+  const fetchData = async () => {
+    const result = await fetch('/data/data.json');
+    const data = await result.json();
+    setData(data);
+  }
+
+  useEffect( () => {
+    fetchData(); 
+    console.log(data);
+  }, [])
+
   return (
     <>
       <Head>
@@ -13,8 +27,8 @@ const Home: NextPage = () => {
         <section className=" py-10">
           <div className="flex items-center place-content-center p-5">
             <div className="">
-              <h1 className="text-6xl mt-10 py-2 text-emerald-500 font-bold ">
-                ToolKit 🛠
+              <h1 className="text-6xl mt-10 py-2 text-gray-400 font-bold ">
+                ToolKit<span className="text-[4rem] pb-1 ">🛠</span>
               </h1>
             </div>
           </div>
@@ -40,22 +54,11 @@ const Home: NextPage = () => {
             <div className="tag">📑 Cheatsheets</div>
           </div>
           <div className=" w-4/5 py-10 my-0 mx-auto toolsWrapper grid grid-cols-4 gap-5 items-center place-content-center">
-            <button className="btn-primary"> Hello </button>
-            <button className="btn-primary"> Hello </button>
-            <button className="btn-primary"> Hello </button>
-            <button className="btn-primary"> Hello </button>
-            <button className="btn-primary"> Hello </button>
-            <button className="btn-primary"> Hello </button>
-            <button className="btn-primary"> Hello </button>
-            <button className="btn-primary"> Hello </button>
-            <button className="btn-primary"> Hello </button>
-            <button className="btn-primary"> Hello </button>
-            <button className="btn-primary"> Hello </button>
-            <button className="btn-primary"> Hello </button>
-            <button className="btn-primary"> Hello </button>
-            <button className="btn-primary"> Hello </button>
-            <button className="btn-primary"> Hello </button>
-            <button className="btn-primary"> Hello </button>
+            {
+              data.map((data, key) => {
+                return <Preview key={key} data={data} />
+              })
+           }
           </div>
         </section>
       </main>
