@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import type { NextPage } from "next";
 import Head from "next/head";
-import Preview from '../components/Preview'
+import Preview from '../components/Preview';
+import Pattern from '../public/Moon.svg';
 
 const Home: NextPage = () => {
   const [data, setData] = useState([]);
@@ -24,7 +25,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="w-full bg-[#080910] h-full content-center ">
-        <section className=" py-10">
+        <section className=" bg-[url('/Moon.svg')] py-10">
           <div className="flex items-center place-content-center p-5">
             <div className="">
               <h1 className="text-6xl mt-10 py-2 text-gray-400 font-bold ">

@@ -10,6 +10,7 @@ module.exports = {
       mono: ["Cascadia"]
     }
   },
-  extend: {},
+  extend: {
+  },
   plugins: [],
 }

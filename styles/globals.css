@@ -13,12 +13,12 @@
 
 @layer base {
     @font-face {
-      font-family: "Flama";
+      font-family: "Inter";
       src: url("../assets/Inter-Regular.ttf") format("truetype") ;
     }
 
   html { 
-    font-family: "Flama", system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: "Inter", system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   }
 
   ::selection{
