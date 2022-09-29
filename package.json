@@ -9,9 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "axios": "^0.27.2",
+    "cheerio": "^1.0.0-rc.12",
     "framer-motion": "^6.3.3",
+    "html2canvas": "^1.4.1",
+    "jsdom": "^20.0.0",
     "link-preview-js": "^3.0.0",
     "next": "12.1.6",
+    "puppeteer": "^18.0.5",
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-icons": "^4.3.1",
