@@ -66,7 +66,7 @@ const Home: NextPage = () => {
           <div className="flex items-center place-content-center p-5">
             <div className="">
               <h1 className="text-6xl mt-10 py-2 text-gray-400 font-bold ">
-                ToolKit<span className="text-[4rem] pb-1 ">🛠</span>
+                ToolKit
               </h1>
             </div>
           </div>
