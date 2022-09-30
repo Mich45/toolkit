@@ -28,7 +28,7 @@ const Home: NextPage = () => {
         <section className=" bg-[url('/Moon.svg')] py-10">
           <div className="flex items-center place-content-center p-5">
             <div className="">
-              <h1 className="text-6xl mt-10 py-2 text-gray-400 font-bold ">
+              <h1 className="text-6xl mt-10 py-2 text-gray-400 font-bold font-[cursive] ">
                 ToolKit
               </h1>
             </div>
