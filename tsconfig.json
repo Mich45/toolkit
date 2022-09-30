@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "lib/connection.js", "pages/api/tool.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "lib/controller.js", "lib/connection.js", "pages/api/tool.js"],
   "exclude": ["node_modules"]
 }
