@@ -1,122 +1,150 @@
-[
-    {
+// MongoDB Playground
+// To disable this template go to Settings | MongoDB | Use Default Template For Playground.
+// Make sure you are connected to enable completions and to be able to run a playground.
+// Use Ctrl+Space inside a snippet or a string literal to trigger completions.
+
+// Select the database to use.
+use('toolkit');
+
+// Insert a few documents into the tools collection.
+db.tools.insertMany([
+{
         "title": "Shadow Generator",
         "description": "Lorem loren there dolor the yateaa.",
         "url": "xyz.com",
         "preview": "",
         "category": ["design", "web", "generator"],
-        "imgURL": "https//"
+        "imgURL": "https://"
     },
     {
         "title": "Shadow Generator",
         "description": "A x y x",
         "url": "xyz.com",
         "preview": "",
-        "category": ["design", "web", "generator"]
+        "category": ["design", "web", "generator"],
+        "imgURL": "https://"
     },
     {
         "title": "Shadow Generator",
         "description": "A x y x",
         "url": "xyz.com",
         "preview": "",
-        "category": ["design", "web", "generator"]
+        "category": ["design", "web", "generator"],
+        "imgURL": "https://"
     },
     {
         "title": "Shadow Generator",
         "description": "A x y x",
         "url": "xyz.com",
         "preview": "",
-        "category": ["design", "web", "generator"]
+        "category": ["design", "web", "generator"],
+        "imgURL": "https://"
     }, 
     {
         "title": "Shadow Generator",
         "description": "A x y x",
         "url": "xyz.com",
         "preview": "",
-        "category": ["design", "web", "generator"]
+        "category": ["design", "web", "generator"],
+        "imgURL": "https://"
     },
     {
         "title": "Shadow Generator",
         "description": "A x y x",
         "url": "xyz.com",
         "preview": "",
-        "category": ["design", "web", "generator"]
+        "category": ["design", "web", "generator"],
+        "imgURL": "https://"
     },
     {
         "title": "Shadow Generator",
         "description": "A x y x",
         "url": "xyz.com",
         "preview": "",
-        "category": ["design", "web", "generator"]
+        "category": ["design", "web", "generator"],
+        "imgURL": "https://"
     },
     {
         "title": "Shadow Generator",
         "description": "A x y x",
         "url": "xyz.com",
         "preview": "",
-        "category": ["design", "web", "generator"]
+        "category": ["design", "web", "generator"],
+        "imgURL": "https://"
     },
     {
         "title": "Shadow Generator",
         "description": "A x y x",
         "url": "xyz.com",
         "preview": "",
-        "category": ["design", "web", "generator"]
+        "category": ["design", "web", "generator"],
+        "imgURL": "https://"
     },
     {
         "title": "Shadow Generator",
         "description": "A x y x",
         "url": "xyz.com",
         "preview": "",
-        "category": ["design", "web", "generator"]
+        "category": ["design", "web", "generator"],
+        "imgURL": "https://"
     },
     {
         "title": "Shadow Generator",
         "description": "A x y x",
         "url": "xyz.com",
         "preview": "",
-        "category": ["design", "web", "generator"]
+        "category": ["design", "web", "generator"],
+        "imgURL": "https://"
     },
     {
         "title": "Shadow Generator",
         "description": "A x y x",
         "url": "xyz.com",
         "preview": "",
-        "category": ["design", "web", "generator"]
+        "category": ["design", "web", "generator"],
+        "imgURL": "https://"
     },
     {
         "title": "Shadow Generator",
         "description": "A x y x",
         "url": "xyz.com",
         "preview": "",
-        "category": ["design", "web", "generator"]
+        "category": ["design", "web", "generator"],
+        "imgURL": "https://"
     },
     {
         "title": "Shadow Generator",
         "description": "A x y x",
         "url": "xyz.com",
         "preview": "",
-        "category": ["design", "web", "generator"]
+        "category": ["design", "web", "generator"],
+        "imgURL": "https://"
     },
     {
         "title": "Shadow Generator",
         "description": "A x y x",
         "url": "xyz.com",
         "preview": "",
-        "category": ["design", "web", "generator"]
+        "category": ["design", "web", "generator"],
+        "imgURL": "https://"
     },
     {
         "title": "Shadow Generator",
         "description": "A x y x",
         "url": "xyz.com",
         "preview": "",
-        "category": ["design", "web", "generator"]
+        "category": ["design", "web", "generator"],
+        "imgURL": "https://"
     },
     {
         "title": "Shadow Generator",
         "description": "A x y x",
         "url": "xyz.com",
         "preview": "",
-        "category": ["design", "web", "generator"]
+        "category": ["design", "web", "generator"],
+        "imgURL": "https://"
     }
-]
+]);
+
+// Run a find command to view items sold on April 4th, 2014.
+db.tools.find()

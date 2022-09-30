@@ -3,9 +3,6 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Preview from '../components/Preview';
 import Pattern from '../public/Moon.svg';
-// import * as cheerio from 'cheerio';
-import html2canvas from 'html2canvas';
-// import jsdom from 'jsdom';
 
 const Home: NextPage = () => {
   const [data, setData] = useState([]);
@@ -15,43 +12,9 @@ const Home: NextPage = () => {
     setData(data);
   }
 
-  const getCanvas = async () => {
-    await html2canvas(document.body).then((canvas) => {
-      let a = document.createElement("a");
-      a.download = "canvas.png";
-      a.href = canvas. toDataURL("image/png");
-      a.click();
-      });
-  }
-
-  const getPreview = async () => {
-    await fetch('https://mich-v1.vercel.app').then(value => {
-     return value.text()
-    }).then((result) => {
-
-      var parser = new DOMParser();
-      var doc = parser.parseFromString(result, 'text/html');
-      var body = (doc.body);
-
-
-
-      
-      html2canvas(body).then((canvas) => {
-      console.log(canvas)
-        // const image = canvas.toDataURL("image/png", 1.0);
-        //   console.log(image)
-       });
-      
-       
-    });
-    // const data = result.body;
-    // console.log(data!.text());
-
-  }
 
   useEffect( () => {
-    fetchData(); 
-    getPreview();
+    fetchData();
   }, [])
 
   return (
