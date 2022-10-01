@@ -5,8 +5,8 @@ type DataProps = {
     title: string,
     description: string,
     url: string
-    preview: string,
-    category: string[]
+    category: string[],
+    imgURL: string
     }
 }
 

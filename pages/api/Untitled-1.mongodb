@@ -6,143 +6,58 @@
 // Select the database to use.
 use('toolkit');
 
-// Insert a few documents into the tools collection.
+// db.tools.drop()
+
+//Insert a few documents into the tools collection.
 db.tools.insertMany([
 {
-        "title": "Shadow Generator",
+        "title": "Gradient-color Generator",
         "description": "Lorem loren there dolor the yateaa.",
         "url": "xyz.com",
-        "preview": "",
         "category": ["design", "web", "generator"],
-        "imgURL": "https://"
+        "imgURL": "https://google.com"
     },
     {
-        "title": "Shadow Generator",
+        "title": "Gradient-color Generator",
         "description": "A x y x",
         "url": "xyz.com",
-        "preview": "",
         "category": ["design", "web", "generator"],
-        "imgURL": "https://"
+        "imgURL": "https://google.com"
     },
     {
-        "title": "Shadow Generator",
+        "title": "Gradient-color Generator",
         "description": "A x y x",
         "url": "xyz.com",
-        "preview": "",
         "category": ["design", "web", "generator"],
-        "imgURL": "https://"
+        "imgURL": "https://google.com"
     },
     {
-        "title": "Shadow Generator",
+        "title": "Gradient-color Generator",
         "description": "A x y x",
         "url": "xyz.com",
-        "preview": "",
         "category": ["design", "web", "generator"],
-        "imgURL": "https://"
+        "imgURL": "https://google.com"
     }, 
     {
-        "title": "Shadow Generator",
+        "title": "Gradient-color Generator",
         "description": "A x y x",
         "url": "xyz.com",
-        "preview": "",
         "category": ["design", "web", "generator"],
-        "imgURL": "https://"
+        "imgURL": "https://google.com"
     },
     {
-        "title": "Shadow Generator",
+        "title": "Gradient-color Generator",
         "description": "A x y x",
         "url": "xyz.com",
-        "preview": "",
         "category": ["design", "web", "generator"],
-        "imgURL": "https://"
+        "imgURL": "https://google.com"
     },
     {
-        "title": "Shadow Generator",
+        "title": "Gradient-color Generator",
         "description": "A x y x",
         "url": "xyz.com",
-        "preview": "",
         "category": ["design", "web", "generator"],
-        "imgURL": "https://"
-    },
-    {
-        "title": "Shadow Generator",
-        "description": "A x y x",
-        "url": "xyz.com",
-        "preview": "",
-        "category": ["design", "web", "generator"],
-        "imgURL": "https://"
-    },
-    {
-        "title": "Shadow Generator",
-        "description": "A x y x",
-        "url": "xyz.com",
-        "preview": "",
-        "category": ["design", "web", "generator"],
-        "imgURL": "https://"
-    },
-    {
-        "title": "Shadow Generator",
-        "description": "A x y x",
-        "url": "xyz.com",
-        "preview": "",
-        "category": ["design", "web", "generator"],
-        "imgURL": "https://"
-    },
-    {
-        "title": "Shadow Generator",
-        "description": "A x y x",
-        "url": "xyz.com",
-        "preview": "",
-        "category": ["design", "web", "generator"],
-        "imgURL": "https://"
-    },
-    {
-        "title": "Shadow Generator",
-        "description": "A x y x",
-        "url": "xyz.com",
-        "preview": "",
-        "category": ["design", "web", "generator"],
-        "imgURL": "https://"
-    },
-    {
-        "title": "Shadow Generator",
-        "description": "A x y x",
-        "url": "xyz.com",
-        "preview": "",
-        "category": ["design", "web", "generator"],
-        "imgURL": "https://"
-    },
-    {
-        "title": "Shadow Generator",
-        "description": "A x y x",
-        "url": "xyz.com",
-        "preview": "",
-        "category": ["design", "web", "generator"],
-        "imgURL": "https://"
-    },
-    {
-        "title": "Shadow Generator",
-        "description": "A x y x",
-        "url": "xyz.com",
-        "preview": "",
-        "category": ["design", "web", "generator"],
-        "imgURL": "https://"
-    },
-    {
-        "title": "Shadow Generator",
-        "description": "A x y x",
-        "url": "xyz.com",
-        "preview": "",
-        "category": ["design", "web", "generator"],
-        "imgURL": "https://"
-    },
-    {
-        "title": "Shadow Generator",
-        "description": "A x y x",
-        "url": "xyz.com",
-        "preview": "",
-        "category": ["design", "web", "generator"],
-        "imgURL": "https://"
+        "imgURL": "https://google.com"
     }
 ]);
 

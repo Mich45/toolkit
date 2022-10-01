@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import type { NextPage } from "next";
 import Head from "next/head";
 import Preview from '../components/Preview';
-import { GetServerSideProps } from 'next'
-import Pattern from '../public/Moon.svg';
+import {  GetStaticProps } from 'next'
+import * as api from '../lib/controller';
 
 const Home = ({tools}: any) => {
   const [data, setData] = useState([]);
@@ -11,12 +10,12 @@ const Home = ({tools}: any) => {
   const fetchData = async () => {
     const result = await fetch('/data/data.json');
     const data = await result.json();
-    setData(data);
   }
-
 
   useEffect( () => {
     fetchData();
+    console.log(tools)
+    setData(tools);
   }, [])
 
   return (
@@ -55,7 +54,7 @@ const Home = ({tools}: any) => {
           </div>
           <div className=" w-4/5 py-10 my-0 mx-auto toolsWrapper grid grid-cols-4 gap-5 items-center place-content-center">
             {
-              data.map((data, key) => {
+              tools.map((data: any, key: any) => {
                 return <Preview key={key} data={data} />
               })
            }
@@ -66,12 +65,11 @@ const Home = ({tools}: any) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async () => {
- // Fetch data from external API
- const res = await fetch(`https://.../data`)
- const tools = await res.json()
+export const getStaticProps: GetStaticProps = async () => {
+  const res = await api.getTools();
+  const tools = JSON.stringify(res);
 
- // Pass data to the page via props
+//  // Pass data to the page via props
  return { props: { tools } }
 }
 

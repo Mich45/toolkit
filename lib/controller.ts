@@ -2,6 +2,12 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import Tool from "./model";
 import { v2 as cloudinary } from "cloudinary";
 import puppeteer from "puppeteer";
+import mongoose from 'mongoose';
+
+
+mongoose.connect(process.env.MONGODB_CONNECTION_URL!).then(() => {
+  console.log('Connected to database')
+});
 
 export const saveTool = async (req:NextApiRequest, res:NextApiResponse) => {
   const { title, description, url, category } = req.body;
