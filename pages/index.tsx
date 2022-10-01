@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import type { NextPage } from "next";
 import Head from "next/head";
 import Preview from '../components/Preview';
+import { GetServerSideProps } from 'next'
 import Pattern from '../public/Moon.svg';
 
-const Home: NextPage = () => {
+const Home = ({tools}: any) => {
   const [data, setData] = useState([]);
+
   const fetchData = async () => {
     const result = await fetch('/data/data.json');
     const data = await result.json();
@@ -63,5 +65,14 @@ const Home: NextPage = () => {
     </>
   );
 };
+
+export const getServerSideProps: GetServerSideProps = async () => {
+ // Fetch data from external API
+ const res = await fetch(`https://.../data`)
+ const tools = await res.json()
+
+ // Pass data to the page via props
+ return { props: { tools } }
+}
 
 export default Home;
