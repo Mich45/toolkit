@@ -14,7 +14,10 @@ type DataProps = {
 
 const Preview = ({data} : DataProps) => {
   useEffect(() => {
-     AOS.init({duration: 600})
+    AOS.init({
+      once: true,
+      duration: 600
+    })
    })
 
   return (
