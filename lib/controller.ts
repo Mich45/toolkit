@@ -36,33 +36,42 @@ export const saveTool = async () => {
   "description": "Customer-focused non-volatile project",
   "url": "http://dev.to",
   "category": ['community', 'code']
+   }, 
+   {
+    "title": "Geegpay",
+    "description": "Customer-focused non-volatile project",
+    "url": "https://geegpay.africa",
+    "category": ['community', 'code']
 }]
 
-  data.map((arr, index) => {
-    const exists = Tool.find({ title: arr.title });
-   //@ts-ignore
-    if (exists) {
-      
-    }
 
-    const tool = new Tool({
-      title: arr.title,
-      description: arr.description,
-      url: arr.url,
-      category: arr.category,
+  data.map((arr, index) => {
+    //@ts-ignore
+    Tool.findOne({ title: arr.title }, (err, doc) => {
+      if (doc) {
+        console.log('Document already exists, skipping...')
+      } else {
+        const tool = new Tool({
+          title: arr.title,
+          description: arr.description,
+          url: arr.url,
+          category: arr.category,
+        });
+      
+        try {
+          saveToCloud(tool.url!, function (imageURL: string) {
+            console.log(imageURL)
+            tool.imgURL = imageURL;
+            tool.save()
+          })
+          //res.status(200).json({ "message": 'Tool created successfully!' });
+         } catch (e) {
+          //res.status(500).json({ "message": "An error occurred, please try again."})
+          console.log(e)
+        }
+        
+      }
     });
-  
-    try {
-      saveToCloud(tool.url!, function (imageURL: string) {
-        console.log(imageURL)
-        tool.imgURL = imageURL;
-        tool.save()
-      })
-      //res.status(200).json({ "message": 'Tool created successfully!' });
-     } catch (e) {
-      //res.status(500).json({ "message": "An error occurred, please try again."})
-      console.log(e)
-    }
   })
 };
 
