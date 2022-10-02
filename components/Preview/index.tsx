@@ -33,7 +33,7 @@ const Preview = ({data} : DataProps) => {
               <h2 className="text-sm font-bold text-gray-300 capitalize">{data.title}</h2>
             </div>
             <div className="text-center">
-                <p className="text-ellipsis text-gray-500 text-sm">{data.description}</p>
+                <p className="text-ellipsis text-gray-400 text-sm">{data.description}</p>
             </div>
           </div>
         </div>
