@@ -80,16 +80,6 @@ export const getServerSideProps = async({req, res}) => {
 
   return { props: { tools: JSON.parse(tools) } }
 }
-  
-if (req.method === 'POST') {
-  let body = [];
-  req.on('data', (chunk) => {
-    body.push(chunk)
-  }).on('end', () => {
-    body = Buffer.concat(body).toString();
-  })
-  return {props: {body}}
- }
 }
 
 export default Home;
