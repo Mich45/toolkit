@@ -22,7 +22,7 @@ const Preview = ({data} : DataProps) => {
 
   return (
     <>
-      <a data-aos="fade-up" href={data.url} className="shadow-lg shadow-gray-800/50 hover:scale-105 hover:translate-y-1 transition-all duration-300 ease-in-out">
+      <a data-aos="fade-up" href={data.url} className="shadow-lg shadow-gray-800/50 hover:scale-105 transition duration-300 ease-in-out">
         <div className="h-60 w-64 bg-[#080910] outline-none text-gray-500 rounded cursor-pointer overflow-hidden">
           <div className='image h-[70%]'>
             <img src={data.imgURL} alt={`${data.title} landing page`} className="h-full w-full"/>
