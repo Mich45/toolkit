@@ -4,33 +4,66 @@ import { v2 as cloudinary } from "cloudinary";
 import puppeteer from "puppeteer";
 import mongoose from 'mongoose';
 
-try {
-  mongoose.connect(process.env.MONGODB_CONNECTION_URL!).then(() => {
-    console.log('Connected to database')
-  });
-} catch (error) {
-  console.error(error);
+export const connectToDB = () => {
+  try {
+    console.log(mongoose.connection.readyState)
+    if (mongoose.connection.readyState === 1) {
+      console.log('Connected already');
+    } else {
+      mongoose.connect(process.env.MONGODB_CONNECTION_URL!).then(() => {
+        console.log('Connected to database')
+      });
+    }
+  } catch (error) {
+    console.error(error);
+  }
 }
 
-export const saveTool = async (req:NextApiRequest, res:NextApiResponse) => {
-  const { title, description, url, category } = req.body;
-  const tool = new Tool({
-    title: title,
-    description: description,
-    url: url,
-    category: category,
-  });
+export const saveTool = async () => {
 
-  try {
-    await saveToCloud(tool.url!, function (imageURL: string) {
-      console.log(imageURL)
-      tool.imgURL = imageURL;
-      tool.save()
-    })
-    res.status(200).json({ "message": 'Tool created successfully!' });
-   } catch (e) {
-    res.status(500).json({ "message": "An error occurred, please try again."})
-  }
+ const data = [{
+  "title": "Nairaland",
+  "description": "Enhanced non-volatile protocol",
+  "url": "https://nairaland.com",
+  "category": ['news', 'sport']
+}, {
+  "title": "Google",
+  "description": "Programmable global moderator",
+  "url": "https://google.com",
+  "category": ['news','search']
+}, {
+  "title": "Dev.to",
+  "description": "Customer-focused non-volatile project",
+  "url": "http://dev.to",
+  "category": ['community', 'code']
+}]
+
+  data.map((arr, index) => {
+    const exists = Tool.find({ title: arr.title });
+   //@ts-ignore
+    if (exists) {
+      
+    }
+
+    const tool = new Tool({
+      title: arr.title,
+      description: arr.description,
+      url: arr.url,
+      category: arr.category,
+    });
+  
+    try {
+      saveToCloud(tool.url!, function (imageURL: string) {
+        console.log(imageURL)
+        tool.imgURL = imageURL;
+        tool.save()
+      })
+      //res.status(200).json({ "message": 'Tool created successfully!' });
+     } catch (e) {
+      //res.status(500).json({ "message": "An error occurred, please try again."})
+      console.log(e)
+    }
+  })
 };
 
 export const getTools = async () => {

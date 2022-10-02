@@ -1,7 +1,9 @@
+//@ts-nocheck
 import React, { useState, useEffect } from 'react';
 import Head from "next/head";
+import type { NextApiRequest, NextApiResponse } from 'next'
 import Preview from '../components/Preview';
-import {  GetStaticProps } from 'next'
+import {  GetServerSideProps } from 'next'
 import * as api from '../lib/controller';
 
 type ToolsType = {
@@ -17,15 +19,8 @@ type ToolsType = {
 const Home = ({tools}: any) => {
   const [data, setData] = useState<ToolsType>();
 
-  const fetchData = async () => {
-    const result = await fetch('/data/data.json');
-    const data = await result.json();
-  }
-
   useEffect( () => {
-    fetchData();
-    setData(JSON.parse(tools));
-    console.log(data)
+    setData(tools);
   }, [])
 
   return (
@@ -63,9 +58,8 @@ const Home = ({tools}: any) => {
             <div className="tag">📑 Cheatsheets</div>
           </div>
           <div className=" w-4/5 py-10 my-0 mx-auto toolsWrapper grid grid-cols-4 gap-5 items-center place-content-center">
-            {
-              
-              data!.map((data: any, key: any) => {
+            {  
+              tools.map((data: any, key: any) => {
                 return <Preview key={key} data={data} />
               })
            }
@@ -74,14 +68,27 @@ const Home = ({tools}: any) => {
       </main>
     </>
   );
-};
+}; 
 
-export const getStaticProps: GetStaticProps = async () => {
-  const res = await api.getTools();
-  const tools = JSON.stringify(res);
+export const getServerSideProps = async({req, res}) => {
+  if (req.method === 'GET') {
+   api.connectToDB();
+   api.saveTool();
+  const response = await api.getTools();
+  const tools = JSON.stringify(response);
 
-//  // Pass data to the page via props
- return { props: { tools } }
+  return { props: { tools: JSON.parse(tools) } }
+}
+  
+if (req.method === 'POST') {
+  let body = [];
+  req.on('data', (chunk) => {
+    body.push(chunk)
+  }).on('end', () => {
+    body = Buffer.concat(body).toString();
+  })
+  return {props: {body}}
+ }
 }
 
 export default Home;
