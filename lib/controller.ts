@@ -4,10 +4,13 @@ import { v2 as cloudinary } from "cloudinary";
 import puppeteer from "puppeteer";
 import mongoose from 'mongoose';
 
-
-mongoose.connect(process.env.MONGODB_CONNECTION_URL!).then(() => {
-  console.log('Connected to database')
-});
+try {
+  mongoose.connect(process.env.MONGODB_CONNECTION_URL!).then(() => {
+    console.log('Connected to database')
+  });
+} catch (error) {
+  console.error(error);
+}
 
 export const saveTool = async (req:NextApiRequest, res:NextApiResponse) => {
   const { title, description, url, category } = req.body;
@@ -24,8 +27,9 @@ export const saveTool = async (req:NextApiRequest, res:NextApiResponse) => {
       tool.imgURL = imageURL;
       tool.save()
     })
+    res.status(200).json({ "message": 'Tool created successfully!' });
    } catch (e) {
-    console.error(e);
+    res.status(500).json({ "message": "An error occurred, please try again."})
   }
 };
 
