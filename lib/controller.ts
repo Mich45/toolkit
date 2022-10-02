@@ -8,9 +8,9 @@ export const connectToDB = () => {
   try {
     console.log(mongoose.connection.readyState)
     if (mongoose.connection.readyState === 1) {
-      console.log('Connected already');
+      console.log('Already connected');
     } else {
-      mongoose.connect(process.env.MONGODB_CONNECTION_URL!).then(() => {
+      mongoose.connect(process.env.MONGODB_ATLAS_CONNECTION_URL!).then(() => {
         console.log('Connected to database')
       });
     }
