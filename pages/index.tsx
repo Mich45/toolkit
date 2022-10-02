@@ -4,8 +4,18 @@ import Preview from '../components/Preview';
 import {  GetStaticProps } from 'next'
 import * as api from '../lib/controller';
 
+type ToolsType = {
+  tools: {
+  title: string,
+  description: string,
+  url: string,
+  category: string[],
+  imgURL: string
+  }
+}[]
+
 const Home = ({tools}: any) => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<ToolsType>();
 
   const fetchData = async () => {
     const result = await fetch('/data/data.json');
@@ -14,8 +24,8 @@ const Home = ({tools}: any) => {
 
   useEffect( () => {
     fetchData();
-    console.log(tools)
-    setData(tools);
+    setData(JSON.parse(tools));
+    console.log(data)
   }, [])
 
   return (
@@ -54,7 +64,8 @@ const Home = ({tools}: any) => {
           </div>
           <div className=" w-4/5 py-10 my-0 mx-auto toolsWrapper grid grid-cols-4 gap-5 items-center place-content-center">
             {
-              tools.map((data: any, key: any) => {
+              
+              data!.map((data: any, key: any) => {
                 return <Preview key={key} data={data} />
               })
            }
