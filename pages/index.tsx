@@ -1,10 +1,10 @@
 //@ts-nocheck
 import React, { useState, useEffect } from 'react';
 import Head from "next/head";
-import type { NextApiRequest, NextApiResponse } from 'next'
 import Preview from '../components/Preview';
-import {  GetServerSideProps } from 'next'
 import * as api from '../lib/controller';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
 
 type ToolsType = {
   tools: {
@@ -19,9 +19,10 @@ type ToolsType = {
 const Home = ({tools}: any) => {
   const [data, setData] = useState<ToolsType>();
 
-  useEffect( () => {
+  useEffect(() => {
+    AOS.init();
     setData(tools);
-  }, [])
+  })
 
   return (
     <>
@@ -41,7 +42,7 @@ const Home = ({tools}: any) => {
           </div>
           <div className="flex items-center place-content-center p-5">
             <div className=" w-3/5 ">
-              <p className=" pb-12 text-gray-500 text-sm font-semibold text-center">
+              <p data-aos="zoom-in" className=" pb-12 text-gray-500 text-sm font-semibold text-center">
                 Explore a comprehensive list of awesome web tools to ease and accelerate your
                 day-to-day developer experience. This toolkit lets you explore ready-made programming tools so you can develop and ship faster.
               </p>
