@@ -6,11 +6,10 @@ import mongoose from 'mongoose';
 
 export const connectToDB = () => {
   try {
-    console.log(mongoose.connection.readyState)
     if (mongoose.connection.readyState === 1) {
       console.log('Already connected');
     } else {
-      mongoose.connect(process.env.MONGODB_ATLAS_CONNECTION_URL!).then(() => {
+      mongoose.connect(process.env.MONGODB_CONNECTION_URL! || process.env.MONGODB_ATLAS_CONNECTION_URL!).then(() => {
         console.log('Connected to database')
       });
     }
@@ -60,13 +59,10 @@ export const saveTool = async () => {
       
         try {
           saveToCloud(tool.url!, function (imageURL: string) {
-            console.log(imageURL)
             tool.imgURL = imageURL;
             tool.save()
           })
-          //res.status(200).json({ "message": 'Tool created successfully!' });
          } catch (e) {
-          //res.status(500).json({ "message": "An error occurred, please try again."})
           console.log(e)
         }
         

@@ -28,7 +28,7 @@ const Preview = ({data} : DataProps) => {
             <img src={data.imgURL} alt={`${data.title} landing page`} className="h-full w-full"/>
           </div>
           
-          <div className='h-[30%] pt-1 bg-black flex flex-col place-items-center overflow-hidden'>
+          <div className='h-[30%] pt-1 bg-[#080910] flex flex-col place-items-center overflow-hidden'>
             <div>
               <h2 className="text-sm font-bold text-gray-300 capitalize">{data.title}</h2>
             </div>

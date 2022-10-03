@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Head from "next/head";
 import Preview from '../components/Preview';
+import Footer from '../components/Footer';
 import * as api from '../lib/controller';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
@@ -58,7 +59,7 @@ const Home = ({tools}: any) => {
             <div className="tag">✒ Icons</div>
             <div className="tag">📑 Cheatsheets</div>
           </div>
-          <div className=" w-4/5 py-10 my-0 mx-auto toolsWrapper grid grid-cols-4 gap-5 items-center place-content-center">
+          <div className=" w-4/5 py-10 my-0 mx-auto toolsWrapper flex flex-col lg:grid lg:grid-cols-4 gap-5 items-center place-content-center">
             {  
               tools.map((data: any, key: any) => {
                 return <Preview key={key} data={data} />
@@ -67,6 +68,7 @@ const Home = ({tools}: any) => {
           </div>
         </section>
       </main>
+      <Footer/>
     </>
   );
 }; 
