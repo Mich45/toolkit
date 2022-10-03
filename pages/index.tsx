@@ -7,22 +7,10 @@ import * as api from '../lib/controller';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 
-type ToolsType = {
-  tools: {
-  title: string,
-  description: string,
-  url: string,
-  category: string[],
-  imgURL: string
-  }
-}[]
-
 const Home = ({tools}: any) => {
-  const [data, setData] = useState<ToolsType>();
 
   useEffect(() => {
     AOS.init();
-    setData(tools);
   })
 
   return (
