@@ -30,8 +30,8 @@ const Home = ({tools}: any) => {
             </div>
           </div>
           <div className="flex items-center place-content-center p-5">
-            <div className=" w-3/5 ">
-              <p data-aos="zoom-in" className=" pb-12 text-gray-500 text-sm font-semibold lg:text-center">
+            <div className="lg:w-3/5 w-full">
+              <p data-aos="zoom-in" className=" pb-12 text-gray-500 text-sm font-semibold text-center">
                 Explore a comprehensive list of awesome web tools to ease and accelerate your
                 day-to-day developer experience. This toolkit lets you explore ready-made programming tools so you can develop and ship faster.
               </p>
