@@ -9,7 +9,7 @@ const Footer = () => {
             <p>With 💜 by <a className="text-slate-700 hover:text-gray-500 transition ease-in-out"  href="https://twitter.com/michaelhungbo">Michael Hungbo</a></p>
           </div>
           <div>
-            <a className="text-slate-700 hover:text-gray-500 transition ease-iin-out flex" href="https://github.com/"><span className="px-1"><GitHubIcon/> </span>GitHub</a>
+            <a className="text-slate-700 hover:text-gray-500 transition ease-iin-out flex" target="_blank" href="https://github.com/"><span className="px-1"><GitHubIcon/> </span>GitHub</a>
           </div>
         </div>
       </div>
