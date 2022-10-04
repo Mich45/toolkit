@@ -6,10 +6,10 @@ const Footer = () => {
       <div className="h-24 w-full bg-[#080910]">
         <div className="lg:mx-[130px] h-full text-sm flex-col flex lg:flex-row lg:justify-between items-center text-gray-300">
           <div className="py-4">
-            <p>With 💜 by <a className="text-slate-700 hover:text-gray-500 transition ease-in-out" target="_blank" rel="noopener"  href="https://twitter.com/michaelhungbo">Michael Hungbo</a></p>
+            <p>With 💜 by <a className="text-slate-700 hover:text-gray-500 transition ease-in-out" target="_blank" rel="noopener noreferrer"  href="https://twitter.com/michaelhungbo">Michael Hungbo</a></p>
           </div>
           <div>
-            <a className="text-slate-700 hover:text-gray-500 transition ease-iin-out flex" target="_blank" rel="noopener" href="https://github.com/"><span className="px-1"><GitHubIcon/> </span>GitHub</a>
+            <a className="text-slate-700 hover:text-gray-500 transition ease-iin-out flex" target="_blank" rel="noopener noreferrer" href="https://github.com/"><span className="px-1"><GitHubIcon/> </span>GitHub</a>
           </div>
         </div>
       </div>
