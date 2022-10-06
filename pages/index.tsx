@@ -35,7 +35,7 @@ const Home = ({tools}: any) => {
             <div className="lg:w-3/5 w-full">
               <p data-aos="zoom-in" className=" pb-12 text-gray-500 text-sm font-semibold text-center">
                 Explore a comprehensive list of awesome web tools to ease and accelerate your
-                day-to-day developer experience. This toolkit lets you explore ready-made programming tools so you can develop and ship faster.
+                day-to-day developer experience. Toolkit lets you explore ready-made programming tools so you can develop and ship faster.
               </p>
             </div>
           </div>
