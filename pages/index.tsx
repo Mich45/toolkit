@@ -1,11 +1,13 @@
 //@ts-nocheck
 import React, { useState, useEffect } from 'react';
 import Head from "next/head";
+import Image from 'next/image'
 import Preview from '../components/Preview';
 import Footer from '../components/Footer';
 import * as api from '../lib/controller';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
+import Toolkit from '../public/toolkit.png'
 
 const Home = ({tools}: any) => {
 
@@ -25,7 +27,7 @@ const Home = ({tools}: any) => {
           <div className="flex items-center place-content-center p-5">
             <div className="">
               <h1 className="text-6xl mt-10 py-2 text-gray-400 font-bold font-[cursive] ">
-                ToolKit
+                ToolKit <span style={{ display: "inlineBlock", verticalAlign: "bottom" }}><img src={Toolkit.src} style={{verticalAlign: "bottom"}} height={55} width={55} /></span>
               </h1>
             </div>
           </div>
