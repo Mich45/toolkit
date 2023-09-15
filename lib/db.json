@@ -1,0 +1,301 @@
+[{
+    "title": "Language Tool",
+    "description": "A multilingual spelling, style, and grammar checker that helps correct or paraphrase texts.",
+    "url": "https://languagetool.org/",
+    "category": ["writing", "ai"]
+},
+{
+    "title": "Hemingway App",
+    "description": "An editing tool that identifies errors and areas of improvement in writing, by highlights and fixing common errors and sentence structure.",
+    "url": "https://hemingwayapp.com/",
+    "category": ["writing", "ai"]
+},
+{
+    "title": "Vale",
+    "description": "Open source command-line linter for prose.",
+    "url": "https://vale.sh/",
+    "category": ["writing"]
+},
+{
+    "title": "Product Hunt",
+    "description": "Product Hunt is a curation of the best new products, every day.",
+    "url": "https://www.producthunt.com/",
+    "category": ["startups", "design", "ideas"]
+},
+{
+    "title": "Ezgif",
+    "description": "Ezgif is a simple online GIF maker and toolset for basic animated GIF editing.",
+    "url": "https://ezgif.com/optimize",
+    "category": ["design", "devtool"]
+},
+{
+    "title": "PDF Tool",
+    "description": "Merge, split, compress, convert, rotate, unlock and watermark PDFs with just a few clicks.",
+    "url": "https://www.ilovepdf.com/",
+    "category": ["document", "writing"]
+},
+{
+    "title": "Ray.so",
+    "description": "Create beautiful images of your code ",
+    "url": "https://ray.so/",
+    "category": ["devtool", "screen-capture"]
+},
+{
+    "title": "Excalidraw",
+    "description": "Excalidraw is a virtual collaborative whiteboard tool that lets you easily sketch diagrams that have a hand-drawn feel to them.",
+    "url": "https://excalidraw.com/",
+    "category": ["design", "diagramming"]
+},
+{
+    "title": "Quillbot",
+    "description": "All in one AI tool for paraphrasing, grammar checking, plagiarism checking and more.",
+    "url": "https://quillbot.com/",
+    "category": ["writing", "ai"]
+},
+{
+    "title": "Hack.md",
+    "description": "A real-time, multi-platform collaborative Markdown editor.",
+    "url": "https://hackmd.io",
+    "category": ["writing"]
+},
+{
+    "title": "StackEdit",
+    "description": "A real-time, multi-platform collaborative Markdown editor.",
+    "url": "https://stackedit.io/app#",
+    "category": ["writing"]
+},
+{
+    "title": "OBS Studio ",
+    "description": "A free and open source software for video recording and live streaming.",
+    "url": "https://obsproject.com/",
+    "category": ["screen-capture", "video"]
+},
+{
+    "title": "Draw.io",
+    "description": "A tool for creating diagrams, such as flowcharts, wireframes, UML diagrams, organizational charts, and network diagrams.",
+    "url": "https://app.diagrams.net/",
+    "category": ["design", "diagramming"]
+},
+{
+    "title": "Library Genesis ",
+    "description": "A file-sharing based shadow library website for scholarly journal articles, academic and general-interest books.",
+    "url": "http://libgen.is/",
+    "category": ["books"]
+},
+{
+    "title": "Inkscape",
+    "description": "Inkscape is a Free and open source vector graphics editor for GNU/Linux, Windows and macOS.",
+    "url": "https://inkscape.org",
+    "category": ["design", "ui"]
+},
+{
+    "title": "Miro",
+    "description": "A whiteboarding platform for teams to brainstorm and collaborate.",
+    "url": "https://miro.com/",
+    "category": ["devtool", "collaboration"]
+},
+{
+    "title": "Penpot",
+    "description": "An open source design and prototyping platform for product teams.",
+    "url": "https://penpot.app",
+    "category": ["design", "prototyping"]
+},
+{
+    "title": "Canva",
+    "description": "A cloud-based graphic design tool used to create on-brand marketing content, sales presentations.",
+    "url": "https://www.canva.com/",
+    "category": ["design", "ui"]
+},
+{
+    "title": "DevDocs",
+    "description": "DevDocs combines multiple API documentations in a fast, organized, and searchable interface.",
+    "url": "https://devdocs.io/",
+    "category": ["devtool"]
+},
+{
+    "title": "Omatsuri.app",
+    "description": "Explore a collection of open source browser tools for everyday use.",
+    "url": "https://omatsuri.app",
+    "category": ["devtool"]
+},
+{
+    "title": "SVG Viewer",
+    "description": "A web tool that allows users to view, edit and render SVGs.",
+    "url": "https://svgviewer.dev",
+    "category": ["design"]
+},
+{
+    "title": "LucidChart",
+    "description": "A web-based diagramming tool that makes drawing diagrams fast and easy.",
+    "url": "https://lucidchart.com",
+    "category": ["design", "diagramming"]
+},
+{
+    "title": "Startup.jobs",
+    "description": "A job board for startup jobs.",
+    "url": "https://startup.jobs/",
+    "category": ["jobs"]
+},
+{
+    "title": "Hunter.io",
+    "description": "An online service that offers various services for finding emails by name or phone number.",
+    "url": "https://hunter.io/",
+    "category": ["jobs", "leads"]
+},
+{
+    "title": "Restore Photos ",
+    "description": "Restore old and blurry photos with AI.",
+    "url": "https://restorephotos.io",
+    "category": ["ai", "photos"]
+},
+{
+    "title": "Conventional commits",
+    "description": "Learn how to make meaningful commit messages. The Conventional Commits specification is a lightweight convention on top of commit messages.",
+    "url": "https://conventionalcommits.org",
+    "category": ["devtool", "writing"]
+},
+{
+    "title": "Conventional comments ",
+    "description": "Conventional Comments is a standard for formatting comments of any kind of review/feedback process, such as: Code review · Peer review · Revising and editing.",
+    "url": "https://conventionalcomments.org",
+    "category": ["devtool"]
+},
+{
+    "title": "Tailwind CSS Playground ",
+    "description": "An advanced online playground for Tailwind CSS that lets you use all of Tailwind's build-time features directly in the browser.",
+    "url": "https://play.tailwindcss.com",
+    "category": ["devtool"]
+},
+{
+    "title": "PageSpeed Insights ",
+    "description": "Analyze the page speed and performance of a website on mobile and desktop devices.",
+    "url": "https://pagespeed.web.dev",
+    "category": ["devtool"]
+},
+{
+    "title": "Read.cv",
+    "description": "Read.cv is a show, don't tell professional network with beautiful profiles and meaningful connections.",
+    "url": "https://read.cv/explore",
+    "category": ["career"]
+},
+{
+    "title": "Responsively App",
+    "description": "A dev-tool that aids faster and precise responsive web development.",
+    "url": "https://responsively.app/",
+    "category": ["devtool"]
+},
+{
+    "title": "12ft.io",
+    "description": "Bypass textual content behind paywalls.",
+    "url": "https://12ft.io/",
+    "category": ["webtool"]
+},
+{
+    "title": "ShareX",
+    "description": "Screen capture, file sharing and productivity tool",
+    "url": "https://getsharex.com/",
+    "category": ["screen-capture", "devtools"]
+},
+{
+    "title": "Snagit",
+    "description": "Screen capture, file sharing and productivity tool",
+    "url": "https://www.techsmith.com/screen-capture.html",
+    "category": ["screen-capture", "devtools"]
+},
+{
+    "title": "Photopea",
+    "description": "Online photo editing software.",
+    "url": "https://www.photopea.com/",
+    "category": ["photos", "design", "photo-editing"]
+},
+{
+    "title": "IT Tools",
+    "description": "A collection of handy online tools for developers.",
+    "url": "https://it-tools.tech/",
+    "category": ["devtool"]
+},
+{
+    "title": "Regex AI",
+    "description": "An AI-powered regex regular expression generator and solver.",
+    "url": "https://regex.ai/",
+    "category": ["devtool", "ai"]
+},
+{
+    "title": "Screen",
+    "description": "A fast way to create screenshots of your app for product pages on Apple App Store, Google Play Store, etc.",
+    "url": "https://screen.traction.one/",
+    "category": ["devtool", "design"]
+},
+{
+    "title": "Obsidian ",
+    "description": "A personal knowledge base and note-taking software application that operates on Markdown files.",
+    "url": "https://obsidian.md/",
+    "category": ["writing"]
+},
+{
+    "title": "Markdown Monster ",
+    "description": "A powerful, yet easy to use, dedicated Markdown editor with syntax highlighting and sophisticated and fast edit features.",
+    "url": "https://markdownmonster.west-wind.com/",
+    "category": ["writing"]
+},
+{
+    "title": "Iconhunt",
+    "description": "A collection of 150,000+ free, open sources icons.",
+    "url": "https://www.iconhunt.site/",
+    "category": ["design", "devtool"]
+},
+{
+    "title": "Poet.so",
+    "description": "Create beautiful screenshots of social media posts.",
+    "url": "https://poet.so/",
+    "category": ["design", "screen-capture"]
+},
+{
+    "title": "Openverse",
+    "description": "An extensive library of free stock photos, images, and audio, available for free use.",
+    "url": "https://openverse.org/",
+    "category": ["photos", "design"]
+},
+{
+    "title": "AngryTools",
+    "description": "A collection of web development tools to speed up your workflow.",
+    "url": "https://angrytools.com/",
+    "category": ["devtool", "generator"]
+},
+{
+    "title": "Screenshotr",
+    "description": "Create professional looking web browser mockups in a flash.",
+    "url": "https://screenshotr.app/",
+    "category": ["devtool", "screen-capture"]
+},
+{
+    "title": "Redact Photo ",
+    "description": "A free online-based app to censor sensitive information in photos.",
+    "url": "https://redact.photo/",
+    "category": "photos"
+},
+{
+    "title": "StarterTab",
+    "description": "A browser extension to customize the look and feel of your browser homepage.",
+    "url": "https://startertab.com/landingpad",
+    "category": ["devtool", "extension"]
+},
+{
+    "title": "Edit Video ",
+    "description": "A free online-based video editing tool. ",
+    "url": "https://edit.video/",
+    "category": ["video", "design", "online"]
+},
+{
+    "title": "Motionity",
+    "description": "A free and open source animation editor in the web.",
+    "url": "https://www.motionity.app/",
+    "category": ["design", "video"]
+},
+{
+    "title": "Codeimg",
+    "description": "A browser-based tool to create and share beautiful images of your source code.",
+    "url": "https://codeimg.io/",
+    "category": ["devtool", "screen-capture"]
+}
+]

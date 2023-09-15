@@ -20,28 +20,7 @@ export const connectToDB = () => {
 
 export const saveTool = async () => {
 
- const data = [{
-  "title": "Nairaland",
-  "description": "Enhanced non-volatile protocol",
-  "url": "https://nairaland.com",
-  "category": ['news', 'sport']
-}, {
-  "title": "Google",
-  "description": "Programmable global moderator",
-  "url": "https://google.com",
-  "category": ['news','search']
-}, {
-  "title": "Dev.to",
-  "description": "Customer-focused non-volatile project",
-  "url": "http://dev.to",
-  "category": ['community', 'code']
-   }, 
-   {
-    "title": "Geegpay",
-    "description": "Customer-focused non-volatile project",
-    "url": "https://geegpay.africa",
-    "category": ['community', 'code']
-}]
+ const data = []
 
 
   data.map((arr, index) => {
