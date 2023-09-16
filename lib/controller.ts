@@ -3,6 +3,7 @@ import { MongoClient } from 'mongodb';
 import { v2 as cloudinary } from 'cloudinary';
 import puppeteer from 'puppeteer';
 import fs from 'fs';
+import path from 'path';
 
 export interface ToolProps {
   title: string;
@@ -13,7 +14,7 @@ export interface ToolProps {
 }
 
 const mongoUrl = process.env.MONGODB_CONNECTION_URL || process.env.MONGODB_ATLAS_CONNECTION_URL as string;
-const dataFilePath = './lib/db.json'; // Path to JSON data file
+const dataFilePath = path.join(process.cwd(), '/lib/db.json') // Path to JSON data file
 
 export const connectToDB = async () => {
   try {
