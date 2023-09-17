@@ -42,12 +42,12 @@ const Home = ({tools}: any) => {
         </section>
         <section className="  bg-[#121520] h-auto">
           <div className="tags w-3/5 py-20 mx-auto grid grid-cols-6 gap-2 items-center place-content-center">
-            <div className="tag">💸 React</div>
-            <div className="tag">✨ Frontend</div>
+            <div className="tag">💸 Devtools</div>
+            <div className="tag">✨ Writing</div>
             <div className="tag">🖌 Design</div>
-            <div className="tag">🎨 UI/UX</div>
+            <div className="tag">🎨 Photos</div>
             <div className="tag">✒ Icons</div>
-            <div className="tag">📑 Cheatsheets</div>
+            <div className="tag">📑 AI Tools</div>
           </div>
           <div className=" w-4/5 py-10 my-0 mx-auto toolsWrapper flex flex-col lg:grid lg:grid-cols-4 md:grid md:grid-cols-2 gap-5 items-center place-content-center">
             {  
