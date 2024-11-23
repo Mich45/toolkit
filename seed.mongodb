@@ -1,0 +1,87 @@
+// MongoDB Playground
+// To disable this template go to Settings | MongoDB | Use Default Template For Playground.
+// Make sure you are connected to enable completions and to be able to run a playground.
+// Use Ctrl+Space inside a snippet or a string literal to trigger completions.
+
+// Select the database to use.
+use('toolkit');
+
+// db.tools.drop() // Danger! Delete all documents in the collection
+
+//Insert a few documents into the tools collection.
+db.tools.insertMany([
+    {
+      "title": "Coolors",
+      "description": "A fast and easy tool to generate color palettes for your designs.",
+      "url": "https://coolors.co",
+      "category": ["design", "color", "generator"],
+      "imgURL": "https://via.placeholder.com/300x200.png?text=Coolors"
+    },
+    {
+      "title": "Unsplash",
+      "description": "A platform with high-quality, freely usable images for creatives.",
+      "url": "https://unsplash.com",
+      "category": ["photography", "design", "resources"],
+      "imgURL": "https://via.placeholder.com/300x200.png?text=Unsplash"
+    },
+    {
+      "title": "Canva",
+      "description": "An online design tool for creating presentations, posters, and social media graphics.",
+      "url": "https://www.canva.com",
+      "category": ["design", "graphics", "productivity"],
+      "imgURL": "https://via.placeholder.com/300x200.png?text=Canva"
+    },
+    {
+      "title": "Figma",
+      "description": "Collaborative interface design and prototyping tool.",
+      "url": "https://www.figma.com",
+      "category": ["design", "collaboration", "prototyping"],
+      "imgURL": "https://via.placeholder.com/300x200.png?text=Figma"
+    },
+    {
+      "title": "Grammarly",
+      "description": "An AI-powered writing assistant that helps improve grammar, spelling, and tone.",
+      "url": "https://www.grammarly.com",
+      "category": ["writing", "productivity", "AI"],
+      "imgURL": "https://via.placeholder.com/300x200.png?text=Grammarly"
+    },
+    {
+      "title": "Google Fonts",
+      "description": "Free library of web fonts for designers and developers.",
+      "url": "https://fonts.google.com",
+      "category": ["design", "web", "fonts"],
+      "imgURL": "https://via.placeholder.com/300x200.png?text=Google+Fonts"
+    },
+    {
+      "title": "LottieFiles",
+      "description": "A platform for free and premium Lottie animations for your apps and websites.",
+      "url": "https://lottiefiles.com",
+      "category": ["design", "animation", "resources"],
+      "imgURL": "https://via.placeholder.com/300x200.png?text=LottieFiles"
+    },
+    {
+      "title": "Notion",
+      "description": "An all-in-one productivity app for note-taking, task management, and collaboration.",
+      "url": "https://www.notion.so",
+      "category": ["productivity", "organization", "collaboration"],
+      "imgURL": "https://via.placeholder.com/300x200.png?text=Notion"
+    },
+    {
+      "title": "Trello",
+      "description": "A visual tool for managing projects and organizing tasks.",
+      "url": "https://trello.com",
+      "category": ["productivity", "project management", "collaboration"],
+      "imgURL": "https://via.placeholder.com/300x200.png?text=Trello"
+    },
+    {
+      "title": "CodePen",
+      "description": "An online code editor and community for front-end developers.",
+      "url": "https://codepen.io",
+      "category": ["development", "web", "coding"],
+      "imgURL": "https://via.placeholder.com/300x200.png?text=CodePen"
+    }
+  ]);
+  
+
+// Run a find command to view items sold on April 4th, 2014.
+db.tools.find()

@@ -71,10 +71,9 @@ export const saveTool = async () => {
     const data = JSON.parse(fs.readFileSync(dataFilePath, 'utf8'));
 
     const client = await connectToDB();
+    const db = client!.db(); // Get the database instance
 
     for (const arr of data) {
-      const db = client!.db(); // Get the database instance
-
       // Check if the document already exists
       const existingTool = await db.collection('tools').findOne({ title: arr.title });
 
@@ -104,10 +103,10 @@ export const saveTool = async () => {
         }
       }
 
-    client!.close(); // Close the MongoDB client when done
-  } catch (error) {
-    console.error(error);
-  }
+    } catch (error) {
+      console.error(error);
+    }
+    //    client!.close(); // Close the MongoDB client when done
 };
 
 export const getTools = async () => {
