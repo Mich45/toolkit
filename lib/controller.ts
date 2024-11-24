@@ -90,9 +90,7 @@ export const saveTool = async () => {
 
         try {
           saveToCloud(newTool.url!, function (imageURL: string) {
-            newTool.imgURL = imageURL;
-            // Insert the new document into the collection
-            
+            newTool.imgURL = imageURL;            
           db.collection('tools').insertOne(newTool);
           }
             );

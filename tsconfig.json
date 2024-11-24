@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "esnext", // Modern JavaScript
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true, // Include .js files
     "skipLibCheck": true, // Faster builds
     "strict": true, // Enforce strict mode
@@ -12,7 +16,7 @@
     "moduleResolution": "node",
     "resolveJsonModule": true, // Allow importing JSON files
     "isolatedModules": true, // One module per file
-    "jsx": "react-jsx", // Use React JSX runtime
+    "jsx": "preserve", // Use React JSX runtime
     "incremental": true // Enable incremental builds
   },
   "include": [
@@ -23,5 +27,7 @@
     "lib/connection.js",
     "pages/api/tool.js"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }
