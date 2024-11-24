@@ -1,20 +1,27 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "esnext", // Modern JavaScript
     "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
+    "allowJs": true, // Include .js files
+    "skipLibCheck": true, // Faster builds
+    "strict": true, // Enforce strict mode
+    "forceConsistentCasingInFileNames": true, // Case-sensitive imports
+    "noEmit": true, // No output files
+    "esModuleInterop": true, // Compatibility for CommonJS modules
+    "module": "esnext", // Align with Next.js module system
     "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true
+    "resolveJsonModule": true, // Allow importing JSON files
+    "isolatedModules": true, // One module per file
+    "jsx": "react-jsx", // Use React JSX runtime
+    "incremental": true // Enable incremental builds
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "lib/controller.js", "lib/connection.js", "pages/api/tool.js"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "lib/controller.js",
+    "lib/connection.js",
+    "pages/api/tool.js"
+  ],
   "exclude": ["node_modules"]
 }
