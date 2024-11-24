@@ -4,10 +4,10 @@ import Head from "next/head";
 import Image from 'next/image'
 import Preview from '../components/Preview';
 import Footer from '../components/Footer';
+import LineSVG from '../components/LineSVG';
 import * as api from '../lib/controller';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
-import Toolkit from '../public/toolkit.png'
 
 const Home = ({tools}: any) => {
 
@@ -25,16 +25,17 @@ const Home = ({tools}: any) => {
       <main className="w-full bg-[#080910] h-full content-center ">
         <section className=" bg-[url('/Moon.svg')] py-10">
           <div className="flex items-center place-content-center p-5">
-            <div className="">
-              <h1 className="text-6xl mt-10 py-2 text-gray-400 font-bold font-[cursive] ">
-                ToolKit <span style={{ display: "inline-block", verticalAlign: "bottom" }}><img src={Toolkit.src} style={{verticalAlign: "bottom"}} height={55} width={55} /></span>
+            <div className="flex flex-col place-items-center">
+              <h1 className="text-6xl mt-10 py-2 text-gray-400 font-bold">
+                ToolKit <span style={{ display: "inline-block", verticalAlign: "bottom" }}></span>
               </h1>
+              <LineSVG/>
             </div>
           </div>
           <div className="flex items-center place-content-center p-5">
             <div className="lg:w-3/5 w-full">
               <p data-aos="zoom-in" className=" pb-12 text-gray-500 text-sm font-semibold text-center">
-                Explore a comprehensive list of awesome web tools to ease and accelerate your
+                Explore a comprehensive list of awesome internet tools to ease and accelerate your
                 day-to-day developer experience. Toolkit lets you explore ready-made programming tools so you can develop and ship faster.
               </p>
             </div>
