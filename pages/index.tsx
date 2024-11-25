@@ -87,7 +87,7 @@ const Home = ({ tools }: any) => {
             <div className="tag">✒ Icons</div>
             <div className="tag">📑 AI Tools</div>
           </div> */}
-            <div className=" py-10 my-0 mx-auto toolsWrapper flex flex-col lg:grid lg:grid-cols-3 md:grid md:grid-cols-2 items-center gap-2 place-content-center">
+            <div className=" py-10 my-0 mx-auto toolsWrapper flex flex-col lg:grid lg:grid-cols-3 md:grid md:grid-cols-2 items-center gap-4 place-content-center">
               {filteredTools.map((data: any, key: any) => {
                 return <Preview key={key} data={data} />;
               })}

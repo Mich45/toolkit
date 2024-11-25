@@ -15,7 +15,7 @@ const Sidebar: React.FC<SidebarProps> = ({ categories, onSearch}) => {
   };
 
   return (
-    <div className="bg-[#1a1a2e] text-white p-5 rounded-md shadow-md w-full ">
+    <div className=" pt-9 bg-[#1a1a2e] text-white p-5 rounded-md shadow-md w-full ">
       <div className="mb-5">
         <input
           type="text"
