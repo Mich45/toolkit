@@ -75,10 +75,10 @@ const Home = ({ tools }: any) => {
         </section>
         {/* Sidebar and tools section */}
         <div className="flex w-full">
-          <div className="w-1/5 bg-[#121520] p-5">
+          <div className="w-1/4 bg-[#121520] p-5">
             <Sidebar categories={categories} onSearch={handleSearch} />
           </div>
-          <section className=" w-4/5 bg-[#121520] h-auto">
+          <section className=" w-3/4 bg-[#121520] h-auto">
             {/* <div className="tags w-3/5 py-20 mx-auto grid grid-cols-6 gap-2 items-center place-content-center">
             <div className="tag">💸 Devtools</div>
             <div className="tag">✨ Writing</div>
