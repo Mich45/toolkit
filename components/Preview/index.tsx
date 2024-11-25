@@ -28,9 +28,9 @@ const Preview = ({ data }: DataProps) => {
         target="_blank"
         rel="noreferrer"
         href={data.url}
-        className="block max-w-[256px] shadow-lg shadow-gray-800/50 hover:scale-105 transition duration-300 ease-in-out group"
+        className="block max-w-60 hover:scale-105 transition duration-300 ease-in-out group"
       >
-        <div className="h-52 w-80 bg-[#080910] rounded overflow-hidden relative">
+        <div className="h-52 w-full bg-[#080910] rounded overflow-hidden relative">
           <div className="h-[80%] relative overflow-hidden">
             <Image
               src={data.imgURL}

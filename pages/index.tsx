@@ -1,5 +1,5 @@
 //@ts-nocheck
-import React, { useState, useEffect } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Preview from "../components/Preview";
@@ -15,10 +15,10 @@ const Home = ({ tools }: any) => {
 
   useEffect(() => {
     AOS.init();
-  });
+  }, []);
 
-  const handleSearch = (query) => {
-    if (!query) {
+  const handleSearch = (query: string) => {
+    if (query.toLowerCase() === 'all') {
       setFilteredTools(tools);
       return;
     }
@@ -35,8 +35,9 @@ const Home = ({ tools }: any) => {
     setFilteredTools(filtered);
   };
 
-  const categories = Array.from(
-    new Set(tools.flatMap((tool) => tool.category))
+  const categories = useMemo(() => 
+    Array.from(new Set(tools.flatMap((tool) => tool.category))), 
+    [tools]
   );
 
   return (
@@ -87,7 +88,7 @@ const Home = ({ tools }: any) => {
             <div className="tag">✒ Icons</div>
             <div className="tag">📑 AI Tools</div>
           </div> */}
-            <div className=" py-10 my-0 mx-auto toolsWrapper flex flex-col lg:grid lg:grid-cols-3 md:grid md:grid-cols-2 items-center gap-4 place-content-center">
+            <div className=" py-10 my-0 mx-auto toolsWrapper flex flex-col lg:grid lg:grid-cols-4 md:grid md:grid-cols-4 items-center gap-y-6 place-content-center">
               {filteredTools.map((data: any, key: any) => {
                 return <Preview key={key} data={data} />;
               })}

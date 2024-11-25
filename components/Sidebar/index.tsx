@@ -29,6 +29,11 @@ const Sidebar: React.FC<SidebarProps> = ({ categories, onSearch}) => {
       <div>
         <h3 className="text-lg font-semibold mb-3">Categories</h3>
         <ul className="space-y-2">
+          <li
+          key={"all"}
+            className="cursor-pointer capitalize text-gray-300 hover:text-white p-2 rounded-md hover:bg-gray-700 transition"
+            onClick={() => onSearch!("all")}
+          >All</li>
           {categories!.map((category) => (
             <li
               key={category}
@@ -44,4 +49,4 @@ const Sidebar: React.FC<SidebarProps> = ({ categories, onSearch}) => {
   );
 };
 
-export default Sidebar;
+export default React.memo(Sidebar);
