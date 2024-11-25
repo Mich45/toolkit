@@ -16,7 +16,6 @@ const Sidebar: React.FC<SidebarProps> = ({ categories, onSearch}) => {
 
   return (
     <div className="bg-[#1a1a2e] text-white p-5 rounded-md shadow-md w-full ">
-      {/* Search Bar */}
       <div className="mb-5">
         <input
           type="text"
@@ -27,7 +26,6 @@ const Sidebar: React.FC<SidebarProps> = ({ categories, onSearch}) => {
         />
       </div>
 
-      {/* Categories List */}
       <div>
         <h3 className="text-lg font-semibold mb-3">Categories</h3>
         <ul className="space-y-2">
@@ -35,7 +33,7 @@ const Sidebar: React.FC<SidebarProps> = ({ categories, onSearch}) => {
             <li
               key={category}
               onClick={() => onSearch!(category)}
-              className="cursor-pointer text-gray-300 hover:text-white p-2 rounded-md hover:bg-gray-700 transition"
+              className="cursor-pointer capitalize text-gray-300 hover:text-white p-2 rounded-md hover:bg-gray-700 transition"
             >
               {category}
             </li>
