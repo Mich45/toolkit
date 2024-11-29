@@ -17,7 +17,7 @@ const Preview = ({ data }: DataProps) => {
   useEffect(() => {
     AOS.init({
       once: true,
-      duration: 600,
+      duration: 500,
     });
   });
 
@@ -37,9 +37,9 @@ const Preview = ({ data }: DataProps) => {
               alt={`${data.title} landing page`}
               style={{ objectFit: "cover" }}
               fill={true}
+              sizes="100vw"
               className="h-full w-full transition-opacity duration-300 group-hover:opacity-50"
             />
-            {/* Description on Hover */}
             <p className="absolute inset-0 flex items-center justify-center text-center text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/60">
               {data.description}
             </p>

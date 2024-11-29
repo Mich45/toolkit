@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 
 type SidebarProps = {
-  categories?: string[]; 
-  onSearch?: (query: string) => void; 
+  categories?: string[];
+  onSearch?: (query: string) => void;
 };
 
-const Sidebar: React.FC<SidebarProps> = ({ categories, onSearch}) => {
+const Sidebar: React.FC<SidebarProps> = ({ categories, onSearch }) => {
   const [searchQuery, setSearchQuery] = useState("");
 
-  const handleSearchChange = (e: { target: { value: any; }; }) => {
+  const handleSearchChange = (e: { target: { value: any } }) => {
     const query = e.target.value;
     setSearchQuery(query);
     onSearch!(query);
@@ -27,13 +27,17 @@ const Sidebar: React.FC<SidebarProps> = ({ categories, onSearch}) => {
       </div>
 
       <div>
-        <h3 className="text-lg font-semibold mb-3">Categories</h3>
+        <h1 className="text-lg font-semibold mb-3">Categories</h1>
         <ul className="space-y-2">
-          <li
-          key={"all"}
-            className="cursor-pointer capitalize text-gray-300 hover:text-white p-2 rounded-md hover:bg-gray-700 transition"
-            onClick={() => onSearch!("all")}
-          >All</li>
+          {
+            <li
+              key={1}
+              onClick={() => onSearch!("all")}
+              className="cursor-pointer capitalize text-gray-300 hover:text-white p-2 rounded-md hover:bg-gray-700 transition"
+            >
+              All
+            </li>
+          }
           {categories!.map((category) => (
             <li
               key={category}
@@ -49,4 +53,4 @@ const Sidebar: React.FC<SidebarProps> = ({ categories, onSearch}) => {
   );
 };
 
-export default React.memo(Sidebar);
+export default Sidebar;

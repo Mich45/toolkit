@@ -15,11 +15,11 @@ const Home = ({ tools }: any) => {
 
   useEffect(() => {
     AOS.init();
-  }, []);
+  },);
 
   const handleSearch = (query: string) => {
-    if (query.toLowerCase() === 'all') {
-      setFilteredTools(tools);
+    if (query === 'all') {
+      setFilteredTools();
       return;
     }
 

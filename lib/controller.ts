@@ -34,7 +34,12 @@ export const saveToCloud = async (url: string, callback: Function) => {
     api_key: process.env.API_KEY,
     api_secret: process.env.API_SECRET,
   });
-  // Take screenshot with Puppeeter
+
+  const client = await connectToDB();
+  const db = client!.db(); // Get the database instance
+
+  if (db) {
+    // Take screenshot with Puppeeter
   try {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
@@ -62,6 +67,7 @@ export const saveToCloud = async (url: string, callback: Function) => {
     if (error) {
       console.log(error);
     }
+  }
   }
 };
 
