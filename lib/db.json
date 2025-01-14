@@ -272,7 +272,7 @@
     "title": "Redact Photo ",
     "description": "A free online-based app to censor sensitive information in photos.",
     "url": "https://redact.photo/",
-    "category": "photos"
+    "category": ["photos"]
 },
 {
     "title": "StarterTab",

@@ -3,48 +3,61 @@ import React, { useState, useMemo, useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Preview from "../components/Preview";
-import Sidebar from "../components/Sidebar";
 import Footer from "../components/Footer";
 import LineSVG from "../components/LineSVG";
 import * as api from "../lib/controller";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const Home = ({ tools }: any) => {
-  const [filteredTools, setFilteredTools] = useState(tools);
+
+export interface Tool {
+  title: string;
+  description: string;
+  url: string;
+  imgURL?: string;
+  category: string[];
+}
+
+export interface HomeProps {
+  tools: Tool[];
+}
+
+const Home: React.FC<HomeProps> = ({ tools }) => {
+  const [filteredTools, setFilteredTools] = useState<Tool[]>(tools);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     AOS.init();
-  },);
+  }, []);
 
-  const handleSearch = (query: string) => {
-    if (query === 'all') {
-      setFilteredTools();
+  const handleSearch = async (query: string) => {
+    if (query === "all") {
+      setFilteredTools(tools);
       return;
     }
-
+  
     const lowerCaseQuery = query.toLowerCase();
-    const filtered = tools.filter(
-      (tool: any) =>
-        tool.title.toLowerCase().includes(lowerCaseQuery) ||
-        (Array.isArray(tool.category) &&
-          tool.category.some((cat: string) =>
-            cat.toLowerCase().includes(lowerCaseQuery)
-          ))
+    const filtered = (tools).filter(
+      (tool) =>
+        tool.title.toLowerCase().includes(lowerCaseQuery) || tool.category.filter((category) => category.includes(lowerCaseQuery))
     );
+  
     setFilteredTools(filtered);
   };
+  
 
-  const categories = useMemo(() => 
-    Array.from(new Set(tools.flatMap((tool) => tool.category))), 
-    [tools]
+  const categories = Array.from(
+    new Set(tools.flatMap((tool) => tool.category))
   );
 
   return (
     <>
       <Head>
         <title>ToolKit</title>
-        <meta name="description" content="A collection of useful resources from around the internet." />
+        <meta
+          name="description"
+          content="A collection of useful resources from around the internet."
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="w-full bg-[#080910] h-full content-center ">
@@ -77,7 +90,48 @@ const Home = ({ tools }: any) => {
         {/* Sidebar and tools section */}
         <div className="flex w-full">
           <div className="w-1/4 bg-[#121520] p-5">
-            <Sidebar categories={categories} onSearch={handleSearch} />
+            <div className=" pt-9 bg-[#1a1a2e] text-white p-5 rounded-md shadow-md w-full ">
+              <div className="mb-5">
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    handleSearch(searchQuery);
+                  }}
+                >
+                  <input
+                    type="text"
+                    placeholder="Search tools..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="w-full p-3 text-sm rounded-md bg-[#121212] text-white placeholder-gray-400 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </form>
+              </div>
+
+              <div>
+                <h1 className="text-lg font-semibold mb-3">Categories</h1>
+                <ul className="space-y-2">
+                  {
+                    <li
+                      key={1}
+                      onClick={() => handleSearch("all")}
+                      className="cursor-pointer capitalize text-gray-300 hover:text-white p-2 rounded-md hover:bg-gray-700 transition"
+                    >
+                      All
+                    </li>
+                  }
+                  {categories!.map((category) => (
+                    <li
+                      key={category}
+                      onClick={() => handleSearch(category)}
+                      className="cursor-pointer capitalize text-gray-300 hover:text-white p-2 rounded-md hover:bg-gray-700 transition"
+                    >
+                      {category}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
           <section className=" w-3/4 bg-[#121520] h-auto">
             {/* <div className="tags w-3/5 py-20 mx-auto grid grid-cols-6 gap-2 items-center place-content-center">
