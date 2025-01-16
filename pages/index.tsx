@@ -30,7 +30,9 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
     AOS.init();
   }, []);
 
-  
+  const handleChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
    
     const searchFilter = (data) => {
       return data.filter((tool) =>
@@ -94,10 +96,7 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
                     type="text"
                     placeholder="Search tools..."
                     value={searchQuery}
-                    onChange={(e) => {
-                      setSearchQuery(e.target.value)
-                    }
-                    }
+                    onChange={handleChange}
                     className="w-full p-3 text-sm rounded-md bg-[#121212] text-white placeholder-gray-400 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
               </div>
