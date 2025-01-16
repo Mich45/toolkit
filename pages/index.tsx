@@ -23,27 +23,25 @@ export interface HomeProps {
 }
 
 const Home: React.FC<HomeProps> = ({ tools }) => {
-  const [filteredTools, setFilteredTools] = useState<Tool[]>(tools);
+  // const [filteredTools, setFilteredTools] = useState<Tool[]>(tools);
   const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     AOS.init();
   }, []);
 
-  const handleSearch = async (query: string) => {
-    if (query === "all") {
-      setFilteredTools(tools);
-      return;
+  
+   
+    const searchFilter = (data) => {
+      return data.filter((tool) =>
+        tool.category.some((category) =>
+          category.toLowerCase().includes(searchQuery.toLowerCase())
+        )
+      ); 
     }
-  
-    const lowerCaseQuery = query.toLowerCase();
-    const filtered = (tools).filter(
-      (tool) =>
-        tool.title.toLowerCase().includes(lowerCaseQuery) || tool.category.filter((category) => category.includes(lowerCaseQuery))
-    );
-  
-    setFilteredTools(filtered);
-  };
+
+    const filtered = searchFilter(tools)
+   console.log(filtered)
   
 
   const categories = Array.from(
@@ -92,20 +90,16 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
           <div className="w-1/4 bg-[#121520] p-5">
             <div className=" pt-9 bg-[#1a1a2e] text-white p-5 rounded-md shadow-md w-full ">
               <div className="mb-5">
-                <form
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    handleSearch(searchQuery);
-                  }}
-                >
                   <input
                     type="text"
                     placeholder="Search tools..."
                     value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
+                    onChange={(e) => {
+                      setSearchQuery(e.target.value)
+                    }
+                    }
                     className="w-full p-3 text-sm rounded-md bg-[#121212] text-white placeholder-gray-400 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
-                </form>
               </div>
 
               <div>
@@ -114,7 +108,7 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
                   {
                     <li
                       key={1}
-                      onClick={() => handleSearch("all")}
+                      onClick={() => setSearchQuery("")}
                       className="cursor-pointer capitalize text-gray-300 hover:text-white p-2 rounded-md hover:bg-gray-700 transition"
                     >
                       All
@@ -123,7 +117,7 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
                   {categories!.map((category) => (
                     <li
                       key={category}
-                      onClick={() => handleSearch(category)}
+                      onClick={() => setSearchQuery(category)}
                       className="cursor-pointer capitalize text-gray-300 hover:text-white p-2 rounded-md hover:bg-gray-700 transition"
                     >
                       {category}
@@ -143,30 +137,29 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
             <div className="tag">📑 AI Tools</div>
           </div> */}
             <div className=" py-10 my-0 mx-auto toolsWrapper flex flex-col lg:grid lg:grid-cols-4 md:grid md:grid-cols-4 items-center gap-y-6 place-content-center">
-              {filteredTools.map((data: any, key: any) => {
+              {filtered.map((data: any, key: any) => {
                 return <Preview key={key} data={data} />;
               })}
             </div>
-            {filteredTools.length === 0 && (
+            {filtered.length === 0 && (
               <p className="text-center text-gray-500 py-10">No tools found</p>
             )}
           </section>
         </div>
       </main>
+
       <Footer />
     </>
   );
 };
 
-export const getServerSideProps = async ({ req, res }) => {
-  if (req.method === "GET") {
+export const getStaticProps = async () => {
     api.connectToDB();
     api.saveTool();
     const response = await api.getTools();
     const tools = JSON.stringify(response);
 
     return { props: { tools: JSON.parse(tools) } };
-  }
 };
 
 export default Home;
