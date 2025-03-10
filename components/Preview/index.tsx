@@ -3,17 +3,17 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Image from "next/image";
 
-type DataProps = {
+export interface Tool {
   data: {
-    title: string;
-    description: string;
-    url: string;
-    category: string[];
-    imgURL: string;
-  };
-};
+  title: string;
+  description: string;
+  url: string;
+  imgURL: string;
+  category: string[];
+  }
+}
 
-const Preview = ({ data }: DataProps) => {
+const Preview: React.FC<Tool>  = ({ data }) => {
   useEffect(() => {
     AOS.init({
       once: true,
@@ -28,10 +28,10 @@ const Preview = ({ data }: DataProps) => {
         target="_blank"
         rel="noreferrer"
         href={data.url}
-        className="block max-w-60 hover:scale-105 transition duration-300 ease-in-out group"
+        className="block max-w-72 hover:scale-105 transition duration-300 ease-in-out group"
       >
-        <div className="h-52 w-full bg-[#080910] rounded overflow-hidden relative">
-          <div className="h-[80%] relative overflow-hidden">
+        <div className="h-[17rem] w-full rounded overflow-hidden relative">
+          <div className="h-[70%] relative overflow-hidden">
             <Image
               src={data.imgURL}
               alt={`${data.title} landing page`}
@@ -44,7 +44,7 @@ const Preview = ({ data }: DataProps) => {
               {data.description}
             </p>
           </div>
-          <div className="h-[20%] pt-1 bg-[#080910] flex flex-col items-center">
+          <div className="h-[30%] pt-1 pl-0 flex flex-col">
             <h2 className="text-md font-bold text-gray-300 capitalize hover:underline">
               {data.title}
             </h2>

@@ -1,10 +1,12 @@
 //@ts-nocheck
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useCallback, useState, useMemo, useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Preview from "../components/Preview";
 import Footer from "../components/Footer";
 import LineSVG from "../components/LineSVG";
+import Tools from "../components/Tools";
+import Search from "../components/Search";
 import * as api from "../lib/controller";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -22,28 +24,63 @@ export interface HomeProps {
   tools: Tool[];
 }
 
+// // Custom debounce hook
+// const useDebounce = (value, delay) => {
+//   const [debouncedValue, setDebouncedValue] = useState(value);
+
+//   useEffect(() => {
+//     const handler = setTimeout(() => {
+//       setDebouncedValue(value);
+//     }, delay);
+
+//     return () => {
+//       clearTimeout(handler);
+//     };
+//   }, [value, delay]);
+
+//   return debouncedValue;
+// };
+
 const Home: React.FC<HomeProps> = ({ tools }) => {
-  // const [filteredTools, setFilteredTools] = useState<Tool[]>(tools);
   const [searchQuery, setSearchQuery] = useState("");
+  const [allTools, setTools] = useState([]);
+  const [searchResults, setSearchResults] = useState([])
+
+
+  // const debouncedSearchQuery = useDebounce(searchQuery, 300); // 300ms delay
+
+  // const handleChange = useCallback((e) => {
+  //   setSearchQuery(e.target.value);
+  // }, []);
+
+  // const searchFilter = (data) => {
+  //   console.log("running")
+  //   return data.filter((tool) =>
+  //     tool.category.some((category) =>
+  //       category.toLowerCase().includes(debouncedSearchQuery.toLowerCase())
+  //     )
+  //   );
+  // };
 
   useEffect(() => {
     AOS.init();
+    setTools(tools)
+    setSearchResults(tools)
   }, []);
 
-  const handleChange = (e) => {
-    setSearchQuery(e.target.value);
-  };
+  // const handleChange = useCallback((e) => {
+  //   setSearchQuery(e.target.value);
+  // }, [searchQuery]);
    
-    const searchFilter = (data) => {
-      return data.filter((tool) =>
-        tool.category.some((category) =>
-          category.toLowerCase().includes(searchQuery.toLowerCase())
-        )
-      ); 
-    }
+  //   const searchFilter = (data) => {
+  //     return data.filter((tool) =>
+  //       tool.category.some((category) =>
+  //         category.toLowerCase().includes(searchQuery.toLowerCase())
+  //       )
+  //     ); 
+  //   }
 
-    const filtered = searchFilter(tools)
-   console.log(filtered)
+  // const filtered = searchFilter(tools)
   
 
   const categories = Array.from(
@@ -92,13 +129,7 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
           <div className="w-1/4 bg-[#121520] p-5">
             <div className=" pt-9 bg-[#1a1a2e] text-white p-5 rounded-md shadow-md w-full ">
               <div className="mb-5">
-                  <input
-                    type="text"
-                    placeholder="Search tools..."
-                    value={searchQuery}
-                    onChange={handleChange}
-                    className="w-full p-3 text-sm rounded-md bg-[#121212] text-white placeholder-gray-400 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  />
+              <Search tools={allTools} setSearchResults={setSearchResults} />
               </div>
 
               <div>
@@ -119,7 +150,7 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
                       onClick={() => setSearchQuery(category)}
                       className="cursor-pointer capitalize text-gray-300 hover:text-white p-2 rounded-md hover:bg-gray-700 transition"
                     >
-                      {category}
+                      {category.length == 2 ? category.toUpperCase() : category}
                     </li>
                   ))}
                 </ul>
@@ -135,14 +166,17 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
             <div className="tag">✒ Icons</div>
             <div className="tag">📑 AI Tools</div>
           </div> */}
-            <div className=" py-10 my-0 mx-auto toolsWrapper flex flex-col lg:grid lg:grid-cols-4 md:grid md:grid-cols-4 items-center gap-y-6 place-content-center">
-              {filtered.map((data: any, key: any) => {
+            <div className=" py-10 my-0 mx-auto toolsWrapper flex flex-col lg:grid lg:grid-cols-3 md:grid md:grid-cols-2 items-center gap-y-14 place-content-center">
+              
+              <Tools data={searchResults}/>
+              
+              {/* {filtered.map((data: any, key: any) => {
                 return <Preview key={key} data={data} />;
-              })}
+              })} */}
             </div>
-            {filtered.length === 0 && (
+            {/* {filtered.length === 0 && (
               <p className="text-center text-gray-500 py-10">No tools found</p>
-            )}
+            )} */}
           </section>
         </div>
       </main>

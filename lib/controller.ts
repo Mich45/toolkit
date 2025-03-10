@@ -85,6 +85,7 @@ export const saveTool = async () => {
 
       if (existingTool) {
         console.log('Document already exists, skipping...');
+        return;
       } else {
         // Create a new document
         const newTool: ToolProps = {
