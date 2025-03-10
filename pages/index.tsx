@@ -95,6 +95,7 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
           name="description"
           content="A collection of useful resources from around the internet."
         />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="w-full bg-[#080910] h-full content-center ">
@@ -126,7 +127,7 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
         </section>
         {/* Sidebar and tools section */}
         <div className="flex w-full">
-          <div className="w-1/4 bg-[#121520] p-5">
+          <div className="w-1/4 hidden md:hidden lg:block bg-[#121520] p-5">
             <div className=" pt-9 bg-[#1a1a2e] text-white p-5 rounded-md shadow-md w-full ">
               <div className="mb-5">
               <Search tools={allTools} setSearchResults={setSearchResults} />
@@ -157,7 +158,7 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
               </div>
             </div>
           </div>
-          <section className=" w-3/4 bg-[#121520] h-auto">
+          <section className=" w-full lg:w-3/4 bg-[#121520] h-auto">
             {/* <div className="tags w-3/5 py-20 mx-auto grid grid-cols-6 gap-2 items-center place-content-center">
             <div className="tag">💸 Devtools</div>
             <div className="tag">✨ Writing</div>
@@ -166,7 +167,7 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
             <div className="tag">✒ Icons</div>
             <div className="tag">📑 AI Tools</div>
           </div> */}
-            <div className=" py-10 my-0 mx-auto toolsWrapper flex flex-col lg:grid lg:grid-cols-3 md:grid md:grid-cols-2 items-center gap-y-14 place-content-center">
+            <div className=" py-10 my-0 mx-auto toolsWrapper grid-cols-1 grid lg:grid-cols-3 md:max-lg:grid-cols-2 items-center gap-y-14 place-content-center">
               
               <Tools data={searchResults}/>
               

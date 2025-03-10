@@ -28,7 +28,7 @@ const Preview: React.FC<Tool>  = ({ data }) => {
         target="_blank"
         rel="noreferrer"
         href={data.url}
-        className="block max-w-72 hover:scale-105 transition duration-300 ease-in-out group"
+        className="block min-w-[280px] max-w-72 hover:scale-105 transition duration-300 ease-in-out group"
       >
         <div className="h-[17rem] w-full rounded overflow-hidden relative">
           <div className="h-[70%] relative overflow-hidden">
@@ -44,7 +44,7 @@ const Preview: React.FC<Tool>  = ({ data }) => {
               {data.description}
             </p>
           </div>
-          <div className="h-[30%] pt-1 pl-0 flex flex-col">
+          <div className="h-[30%] pt-4 pl-0 flex flex-col">
             <h2 className="text-md font-bold text-gray-300 capitalize hover:underline">
               {data.title}
             </h2>
