@@ -99,23 +99,22 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="w-full bg-[#080910] h-full content-center ">
-        <section className=" bg-[url('/Moon.svg')] py-10">
-          <div className="flex items-center place-content-center p-5">
-            <div className="flex flex-col place-items-center">
-              <h1 className="text-6xl mt-10 py-2 text-gray-400 font-bold">
+        <section className="gradient h-[80vh] md:h-[60vh] md:pl-7 py-10">
+          <div className="flex p-5">
+            <div className="flex">
+              <h1 className="text-6xl mt-10 text-white font-bold">
                 ToolKit{" "}
                 <span
                   style={{ display: "inline-block", verticalAlign: "bottom" }}
                 ></span>
               </h1>
-              <LineSVG />
             </div>
           </div>
-          <div className="flex items-center place-content-center p-5">
+          <div className="flex p-5">
             <div className="lg:w-3/5 w-full">
               <p
                 data-aos="zoom-in"
-                className=" pb-12 text-gray-500 text-sm font-semibold text-center"
+                className=" pb-12 text-white text-sm font-semibold"
               >
                 Explore a comprehensive list of awesome internet tools to ease
                 and accelerate your day-to-day developer experience. Toolkit
@@ -123,6 +122,16 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
                 develop and ship faster.
               </p>
             </div>
+          </div>
+            {/* Trending tags */}
+            <p className="text-white ml-4 mb-2 font-bold">Trending categories</p>
+            <div className="tags ml-4 flex flex-wrap gap-2">
+            <div className="tag">💸 Devtool</div>
+            <div className="tag">✨ Productivity</div>
+            <div className="tag">🖌 Design</div>
+            <div className="tag">🎨 Photos</div>
+            <div className="tag">✒ Icons</div>
+            <div className="tag">📑 AI</div>
           </div>
         </section>
         {/* Sidebar and tools section */}
@@ -159,15 +168,7 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
             </div>
           </div>
           <section className=" w-full lg:w-3/4 bg-[#121520] h-auto">
-            {/* <div className="tags w-3/5 py-20 mx-auto grid grid-cols-6 gap-2 items-center place-content-center">
-            <div className="tag">💸 Devtools</div>
-            <div className="tag">✨ Writing</div>
-            <div className="tag">🖌 Design</div>
-            <div className="tag">🎨 Photos</div>
-            <div className="tag">✒ Icons</div>
-            <div className="tag">📑 AI Tools</div>
-          </div> */}
-            <div className=" py-10 my-0 mx-auto toolsWrapper grid-cols-1 grid lg:grid-cols-3 md:max-lg:grid-cols-2 items-center gap-y-14 place-content-center">
+            <div className=" py-10 my-0 mx-auto justify-items-center toolsWrapper grid-cols-1 grid lg:grid-cols-3 md:max-lg:grid-cols-2 items-center gap-y-4">
               
               <Tools data={searchResults}/>
               

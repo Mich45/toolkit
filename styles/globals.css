@@ -5,7 +5,11 @@
 
 @layer components {
   .tag {
-    @apply h-8 w-auto bg-[#2a2d32] font-bold text-gray-200 text-xs cursor-pointer outline-none flex items-center place-content-center text-gray-300 rounded
+    @apply h-8 w-auto py-1 px-2 bg-[#2a2d32] font-bold text-gray-200 text-xs cursor-pointer outline-none flex items-center place-content-center text-gray-300 rounded
+  }
+
+  .gradient {
+    background: linear-gradient(45deg, #cc5ffb -30%, #5650DE 90%) !important;
   }
 }
 
