@@ -188,7 +188,7 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
   );
 };
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
     api.connectToDB();
     api.saveTool();
     const response = await api.getTools();
