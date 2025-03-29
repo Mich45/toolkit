@@ -15,7 +15,7 @@
     "cloudinary": "^1.32.0",
     "framer-motion": "^6.3.3",
     "mongodb": "^4.10.0",
-    "mongoose": "^6.6.2",
+    "mongoose": "^6.13.8",
     "next": "^15.0.3",
     "puppeteer": "^18.0.5",
     "react": "^18.2.0",
