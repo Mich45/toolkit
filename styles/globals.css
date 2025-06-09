@@ -9,11 +9,25 @@
   }
 
   .gradient {
-    background: linear-gradient(45deg, #cc5ffb -30%, #5650DE 90%) !important;
+    background: linear-gradient(84deg, #3d62e2 -39%, #5fd7fb 98%) !important
   }
+
+  .gradient:after {
+      background-image: url(/noise.png);
+      bottom: 0;
+      content: "";
+      display: block;
+      left: 0;
+      opacity: .2;
+      right: 0;
+      top: 0;
+      height: inherit;
+      width: 100%;
+      position: absolute;
+      background-size: cover;
+  }
+
 }
-
-
 
 @layer base {
     @font-face {

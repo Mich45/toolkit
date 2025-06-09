@@ -24,68 +24,24 @@ export interface HomeProps {
   tools: Tool[];
 }
 
-// // Custom debounce hook
-// const useDebounce = (value, delay) => {
-//   const [debouncedValue, setDebouncedValue] = useState(value);
-
-//   useEffect(() => {
-//     const handler = setTimeout(() => {
-//       setDebouncedValue(value);
-//     }, delay);
-
-//     return () => {
-//       clearTimeout(handler);
-//     };
-//   }, [value, delay]);
-
-//   return debouncedValue;
-// };
-
 const Home: React.FC<HomeProps> = ({ tools }) => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [allTools, setTools] = useState([]);
   const [searchResults, setSearchResults] = useState([])
 
 
-  // const debouncedSearchQuery = useDebounce(searchQuery, 300); // 300ms delay
-
-  // const handleChange = useCallback((e) => {
-  //   setSearchQuery(e.target.value);
-  // }, []);
-
-  // const searchFilter = (data) => {
-  //   console.log("running")
-  //   return data.filter((tool) =>
-  //     tool.category.some((category) =>
-  //       category.toLowerCase().includes(debouncedSearchQuery.toLowerCase())
-  //     )
-  //   );
-  // };
-
   useEffect(() => {
     AOS.init();
-    setTools(tools)
     setSearchResults(tools)
   }, []);
 
-  // const handleChange = useCallback((e) => {
-  //   setSearchQuery(e.target.value);
-  // }, [searchQuery]);
-   
-  //   const searchFilter = (data) => {
-  //     return data.filter((tool) =>
-  //       tool.category.some((category) =>
-  //         category.toLowerCase().includes(searchQuery.toLowerCase())
-  //       )
-  //     ); 
-  //   }
-
-  // const filtered = searchFilter(tools)
-  
 
   const categories = Array.from(
     new Set(tools.flatMap((tool) => tool.category))
   );
+
+
+  const memoizedTools = useMemo(() => tools, []);
+
 
   return (
     <>
@@ -125,7 +81,7 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
           </div>
             {/* Trending tags */}
             <p className="text-white ml-4 mb-2 font-bold">Trending categories</p>
-            <div className="tags ml-4 flex flex-wrap gap-2">
+            <div className="tags absolute z-10 ml-4 flex flex-wrap gap-2">
             <div className="tag">💸 Devtool</div>
             <div className="tag">✨ Productivity</div>
             <div className="tag">🖌 Design</div>
@@ -139,7 +95,7 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
           <div className="w-1/4 hidden md:hidden lg:block bg-[#121520] p-5">
             <div className=" pt-9 bg-[#1a1a2e] text-white p-5 rounded-md shadow-md w-full ">
               <div className="mb-5">
-              <Search tools={allTools} setSearchResults={setSearchResults} />
+              <Search tools={memoizedTools} setSearchResults={setSearchResults} />
               </div>
 
               <div>
@@ -170,7 +126,7 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
           <section className=" w-full lg:w-3/4 bg-[#121520] h-auto">
             <div className=" py-10 my-0 mx-auto justify-items-center toolsWrapper grid-cols-1 grid lg:grid-cols-3 md:max-lg:grid-cols-2 items-center gap-y-4">
               
-              <Tools data={searchResults}/>
+              <Tools data={searchResults.length ? searchResults : tools}/>
               
               {/* {filtered.map((data: any, key: any) => {
                 return <Preview key={key} data={data} />;

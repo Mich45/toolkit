@@ -1,3 +1,4 @@
+import React from "react";
 import Preview from "../Preview"
 
 export interface Tool {
@@ -22,4 +23,4 @@ const Tools: React.FC<ToolsProps> = ({ data }) => {
         <>{content}</>
     )
 }
-export default Tools
+export default React.memo(Tools);

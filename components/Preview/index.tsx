@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Image from "next/image";
@@ -55,4 +55,4 @@ const Preview: React.FC<Tool>  = ({ data }) => {
   );
 };
 
-export default Preview;
+export default React.memo(Preview);
