@@ -1,4 +1,3 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
 import { MongoClient } from 'mongodb';
 import { v2 as cloudinary } from 'cloudinary';
 import puppeteer from 'puppeteer';
@@ -85,7 +84,7 @@ export const saveTool = async () => {
 
       if (existingTool) {
         console.log('Document already exists, skipping...');
-        return;
+        continue;
       } else {
         // Create a new document
         const newTool: ToolProps = {
@@ -96,32 +95,61 @@ export const saveTool = async () => {
         };
 
         try {
-          saveToCloud(newTool.url!, function (imageURL: string) {
-            newTool.imgURL = imageURL;            
-          db.collection('tools').insertOne(newTool);
-          }
-            );
-            
-          } catch (e) {
-            console.log(e);
-          }
+          // Promisify saveToCloud to use async/await
+          const imageURL = await new Promise<string>((resolve, reject) => {
+            saveToCloud(newTool.url!, function (imageURL: string) {
+              if (imageURL) {
+                resolve(imageURL);
+              } else {
+                reject(new Error('Failed to get image URL'));
+              }
+            });
+          });
+          newTool.imgURL = imageURL;
+          await db.collection('tools').insertOne(newTool);
+        } catch (e) {
+          console.log(e);
         }
       }
-
-    } catch (error) {
-      console.error(error);
     }
-    //    client!.close(); // Close the MongoDB client when done
+
+  } catch (error) {
+    console.error(error);
+  }
+  //    client!.close(); // Close the MongoDB client when done
 };
 
 export const getTools = async () => {
   try {
     const client = await connectToDB();
-    const db = client!.db(); // Get the database instance
+    const db = client!.db();
     const tools = await db.collection('tools').find().toArray();
     return tools;
   } catch (error) {
     console.error(error);
   }
 };
+
+export const getToolsByCategory = async (category: string) => {
+  try {
+    const client = await connectToDB();
+    const db = client!.db();
+    const tools = await db.collection('tools').find({ category: { $in: [category] } }).toArray();
+    return tools;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export const getCategories = async () => {
+  try {
+    const client = await connectToDB();
+    const db = client!.db();
+    const tools = await db.collection('tools').find().toArray();
+    const categories = Array.from(new Set(tools.flatMap((tool) => tool.category)));
+    return categories;
+  } catch (error) {
+    console.error(error);
+  }
+}
 

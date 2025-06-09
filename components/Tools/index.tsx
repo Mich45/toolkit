@@ -1,5 +1,6 @@
 import React from "react";
 import Preview from "../Preview"
+import { useMemo } from "react";
 
 export interface Tool {
     title: string;
@@ -14,6 +15,9 @@ export interface Tool {
   }
 
 const Tools: React.FC<ToolsProps> = ({ data }) => {
+
+  console.log("Tools component rendered");
+    
 
     const results = data.map((data: Tool) => <Preview key={data.title} data={data} />)
 

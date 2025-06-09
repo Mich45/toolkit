@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect} from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Image from "next/image";
@@ -20,6 +20,8 @@ const Preview: React.FC<Tool>  = ({ data }) => {
       duration: 500,
     });
   });
+
+  console.log("Preview component rendered");
 
   return (
     <>

@@ -1,5 +1,5 @@
 import { useDebounce } from "../../hooks/useDebounce";
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 export interface Tool {
   title: string;
@@ -15,6 +15,7 @@ interface ToolsProps {
 }
 
 const Search: React.FC<ToolsProps> = ({ tools, setSearchResults }) => {
+  console.log("Search component rendered");
   const [searchQuery, setSearchQuery] = useState("");
   const debouncedSearchQuery = useDebounce(searchQuery, 300);
 
@@ -39,9 +40,6 @@ const filtered = tools.filter((tool) =>
 
   const handleSubmit = (e: React.FormEvent) => e.preventDefault();
 
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(e.target.value);
-  };
 
   return (
     <header>
@@ -51,11 +49,11 @@ const filtered = tools.filter((tool) =>
           type="text"
           id="search"
           value={searchQuery}
-          onChange={handleSearchChange}
+          onChange={ e => setSearchQuery(e.target.value) }
           placeholder="Search by category..."
         />
       </form>
     </header>
   );
 };
-export default Search;
+export default React.memo(Search);

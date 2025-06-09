@@ -10,7 +10,7 @@ import Search from "../components/Search";
 import * as api from "../lib/controller";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
+import { set } from "mongoose";
 
 export interface Tool {
   title: string;
@@ -26,22 +26,33 @@ export interface HomeProps {
 
 const Home: React.FC<HomeProps> = ({ tools }) => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [searchResults, setSearchResults] = useState([])
-
+  const [searchResults, setSearchResults] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    AOS.init();
-    setSearchResults(tools)
+    setSearchResults(tools);
   }, []);
 
+  const categories = useMemo(() => {
+    return Array.from(new Set(tools.flatMap((tool) => tool.category)));
+  }, [tools]);
 
-  const categories = Array.from(
-    new Set(tools.flatMap((tool) => tool.category))
-  );
+const handleCategoryChange = async (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const selectedCategory = e.target.value;
+
+  try {
+    setLoading(true);
+    const res = await fetch(`/api/tools?category=${selectedCategory}`);
+    const data = await res.json();
+    setSearchResults(data);
+    setLoading(false);
+  } catch (err) {
+    console.error("Failed to fetch tools by category:", err);
+  }
+};
 
 
   const memoizedTools = useMemo(() => tools, []);
-
 
   return (
     <>
@@ -54,8 +65,8 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="w-full bg-[#080910] h-full content-center ">
-        <section className="gradient h-[80vh] md:h-[60vh] md:pl-7 py-10">
+      <main className="w-full bg-[#080910] content-center ">
+        <section className="gradient md:pl-7 py-20">
           <div className="flex p-5">
             <div className="flex">
               <h1 className="text-6xl mt-10 text-white font-bold">
@@ -79,9 +90,9 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
               </p>
             </div>
           </div>
-            {/* Trending tags */}
-            <p className="text-white ml-4 mb-2 font-bold">Trending categories</p>
-            <div className="tags absolute z-10 ml-4 flex flex-wrap gap-2">
+          {/* Trending tags */}
+          <p className="text-white ml-4 mb-2 font-bold">Trending categories</p>
+          <div className="tags absolute z-10 ml-4 flex flex-wrap gap-2">
             <div className="tag">💸 Devtool</div>
             <div className="tag">✨ Productivity</div>
             <div className="tag">🖌 Design</div>
@@ -95,12 +106,15 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
           <div className="w-1/4 hidden md:hidden lg:block bg-[#121520] p-5">
             <div className=" pt-9 bg-[#1a1a2e] text-white p-5 rounded-md shadow-md w-full ">
               <div className="mb-5">
-              <Search tools={memoizedTools} setSearchResults={setSearchResults} />
+                <Search
+                  tools={memoizedTools}
+                  setSearchResults={setSearchResults}
+                />
               </div>
 
               <div>
                 <h1 className="text-lg font-semibold mb-3">Categories</h1>
-                <ul className="space-y-2">
+                {/* <ul className="space-y-2">
                   {
                     <li
                       key={1}
@@ -119,22 +133,26 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
                       {category.length == 2 ? category.toUpperCase() : category}
                     </li>
                   ))}
-                </ul>
+                </ul> */}
+                <select
+                  onChange={handleCategoryChange}
+                  className="bg-gray-800 text-white p-2 rounded-md mt-4 ml-4"
+                >
+                  <option value="all">All Categories</option>
+                  {categories.map((cat) => (
+                    <option key={cat} value={cat}>
+                      {cat}
+                    </option>
+                  ))}
+                </select>
               </div>
             </div>
           </div>
           <section className=" w-full lg:w-3/4 bg-[#121520] h-auto">
             <div className=" py-10 my-0 mx-auto justify-items-center toolsWrapper grid-cols-1 grid lg:grid-cols-3 md:max-lg:grid-cols-2 items-center gap-y-4">
-              
-              <Tools data={searchResults.length ? searchResults : tools}/>
-              
-              {/* {filtered.map((data: any, key: any) => {
-                return <Preview key={key} data={data} />;
-              })} */}
+              <Tools data={searchResults.length ? searchResults : tools} />
             </div>
-            {/* {filtered.length === 0 && (
-              <p className="text-center text-gray-500 py-10">No tools found</p>
-            )} */}
+
           </section>
         </div>
       </main>
@@ -145,12 +163,12 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
 };
 
 export const getServerSideProps = async () => {
-    api.connectToDB();
-    api.saveTool();
-    const response = await api.getTools();
-    const tools = JSON.stringify(response);
+  api.connectToDB();
+  api.saveTool();
+  const response = await api.getTools();
+  const tools = JSON.stringify(response);
 
-    return { props: { tools: JSON.parse(tools) } };
+  return { props: { tools: JSON.parse(tools) } };
 };
 
 export default Home;

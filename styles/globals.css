@@ -9,7 +9,8 @@
   }
 
   .gradient {
-    background: linear-gradient(84deg, #3d62e2 -39%, #5fd7fb 98%) !important
+    background: linear-gradient(84deg, #0336e8 -39%, #0791e5 98%) !important;
+    position: relative;
   }
 
   .gradient:after {
