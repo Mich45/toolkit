@@ -102,59 +102,34 @@ const handleCategoryChange = async (e: React.ChangeEvent<HTMLSelectElement>) => 
           </div>
         </section>
         {/* Sidebar and tools section */}
-        <div className="flex w-full">
-          <div className="w-1/4 hidden md:hidden lg:block bg-[#121520] p-5">
-            <div className=" pt-9 bg-[#1a1a2e] text-white p-5 rounded-md shadow-md w-full ">
-              <div className="mb-5">
+            <div className="bg-[#3595e7] py-2 z-50 text-center sticky top-[0px] text-white w-full ">
+              {/* <div className="mb-5">
                 <Search
                   tools={memoizedTools}
                   setSearchResults={setSearchResults}
                 />
-              </div>
+              </div> */}
 
               <div>
-                <h1 className="text-lg font-semibold mb-3">Categories</h1>
-                {/* <ul className="space-y-2">
-                  {
-                    <li
-                      key={1}
-                      onClick={() => setSearchQuery("")}
-                      className="cursor-pointer capitalize text-gray-300 hover:text-white p-2 rounded-md hover:bg-gray-700 transition"
-                    >
-                      All
-                    </li>
-                  }
-                  {categories!.map((category) => (
-                    <li
-                      key={category}
-                      onClick={() => setSearchQuery(category)}
-                      className="cursor-pointer capitalize text-gray-300 hover:text-white p-2 rounded-md hover:bg-gray-700 transition"
-                    >
-                      {category.length == 2 ? category.toUpperCase() : category}
-                    </li>
-                  ))}
-                </ul> */}
                 <select
                   onChange={handleCategoryChange}
-                  className="bg-gray-800 text-white p-2 rounded-md mt-4 ml-4"
+                  className="bg-gray-800 text-white p-2 rounded-md border-none focus:outline-none"
                 >
                   <option value="all">All Categories</option>
                   {categories.map((cat) => (
                     <option key={cat} value={cat}>
-                      {cat}
+                      {cat.charAt(0).toUpperCase() + cat.slice(1)}
                     </option>
                   ))}
                 </select>
               </div>
             </div>
-          </div>
-          <section className=" w-full lg:w-3/4 bg-[#121520] h-auto">
+          <section className=" w-full bg-[#121520] h-auto">
             <div className=" py-10 my-0 mx-auto justify-items-center toolsWrapper grid-cols-1 grid lg:grid-cols-3 md:max-lg:grid-cols-2 items-center gap-y-4">
               <Tools data={searchResults.length ? searchResults : tools} />
             </div>
 
           </section>
-        </div>
       </main>
 
       <Footer />

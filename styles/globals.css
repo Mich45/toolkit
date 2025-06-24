@@ -13,6 +13,27 @@
     position: relative;
   }
 
+  .card {
+    min-width: 19rem;
+    max-width: 50rem;
+    padding: 1em;
+    border-radius: 6px;
+    transition: border .2s ease;
+    cursor: pointer;
+    background: #111;
+    border: 1px solid #111;
+    animation: fadein .2s ease forwards;
+  }
+
+    @keyframes fadein {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
   .gradient:after {
       background-image: url(/noise.png);
       bottom: 0;
