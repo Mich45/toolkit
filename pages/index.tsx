@@ -102,7 +102,7 @@ const handleCategoryChange = async (e: React.ChangeEvent<HTMLSelectElement>) => 
           </div>
         </section>
         {/* Sidebar and tools section */}
-            <div className="bg-[#3595e7] py-2 z-50 text-center sticky top-[0px] text-white w-full ">
+            <div className="z-10 py-2 text-center sticky top-[0px] text-white w-full ">
               {/* <div className="mb-5">
                 <Search
                   tools={memoizedTools}
@@ -110,7 +110,7 @@ const handleCategoryChange = async (e: React.ChangeEvent<HTMLSelectElement>) => 
                 />
               </div> */}
 
-              <div>
+              <div className="z-50">
                 <select
                   onChange={handleCategoryChange}
                   className="bg-gray-800 text-white p-2 rounded-md border-none focus:outline-none"
@@ -124,8 +124,8 @@ const handleCategoryChange = async (e: React.ChangeEvent<HTMLSelectElement>) => 
                 </select>
               </div>
             </div>
-          <section className=" w-full bg-[#121520] h-auto">
-            <div className=" py-10 my-0 mx-auto justify-items-center toolsWrapper grid-cols-1 grid lg:grid-cols-3 md:max-lg:grid-cols-2 items-center gap-y-4">
+          <section className="w-full bg-[#121520] h-auto">
+            <div className=" py-10 my-0 mx-auto justify-items-center toolsWrapper grid-cols-1 grid lg:grid-cols-3 md:max-lg:grid-cols-2 items-center gap-y-12">
               <Tools data={searchResults.length ? searchResults : tools} />
             </div>
 

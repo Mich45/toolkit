@@ -9,7 +9,7 @@
   }
 
   .gradient {
-    background: linear-gradient(84deg, #0336e8 -39%, #0791e5 98%) !important;
+    background: linear-gradient(84deg, #292d3c -39%, #000000 98%) !important;
     position: relative;
   }
 
@@ -47,6 +47,7 @@
       width: 100%;
       position: absolute;
       background-size: cover;
+      object-fit: cover;
   }
 
 }

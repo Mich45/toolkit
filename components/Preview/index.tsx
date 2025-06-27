@@ -33,7 +33,7 @@ const Preview: React.FC<Tool>  = ({ data }) => {
         className="block min-w-[359px] max-w-72 hover:scale-105 transition duration-300 ease-in-out group"
       >
         <div className="h-[17rem] w-full rounded-[1.25rem] overflow-hidden relative">
-          <div className="h- relative overflow-hidden">
+          <div className="h-full relative overflow-hidden">
             <Image
               src={data.imgURL}
               alt={`${data.title} landing page`}
@@ -48,7 +48,7 @@ const Preview: React.FC<Tool>  = ({ data }) => {
           </div>
         </div>
           <div className="gap-3 pt-4 pl-0 flex flex-col">
-            <h2 className="text-md font-bold text-gray-300 capitalize hover:underline">
+            <h2 className="text-md font-bold text-gray-400 capitalize hover:underline">
               {data.title}
             </h2>
           </div>
