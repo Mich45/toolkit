@@ -2,10 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer components {
   .tag {
-    @apply h-8 w-auto py-1 px-2 bg-[#2a2d32] font-bold text-gray-200 text-xs cursor-pointer outline-none flex items-center place-content-center text-gray-300 rounded
+    @apply h-8 w-auto py-1 px-2 bg-[#2a2d32] font-bold text-gray-200 text-xs cursor-pointer outline-none flex items-center place-content-center text-gray-300 rounded;
   }
 
   .gradient {
@@ -13,19 +12,30 @@
     position: relative;
   }
 
+  .bg-noise-overlay {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.975' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 256px 256px;
+  }
+  .bg-micro-noise-overlay {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='microNoiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='2.5' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23microNoiseFilter)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 128px 128px;
+  }
+
   .card {
     min-width: 19rem;
     max-width: 50rem;
     padding: 1em;
     border-radius: 6px;
-    transition: border .2s ease;
+    transition: border 0.2s ease;
     cursor: pointer;
     background: #111;
     border: 1px solid #111;
-    animation: fadein .2s ease forwards;
+    animation: fadein 0.2s ease forwards;
   }
 
-    @keyframes fadein {
+  @keyframes fadein {
     from {
       opacity: 0;
     }
@@ -35,35 +45,35 @@
   }
 
   .gradient:after {
-      background-image: url(/noise.png);
-      bottom: 0;
-      content: "";
-      display: block;
-      left: 0;
-      opacity: .2;
-      right: 0;
-      top: 0;
-      height: inherit;
-      width: 100%;
-      position: absolute;
-      background-size: cover;
-      object-fit: cover;
+    background-image: url(/noise.png);
+    bottom: 0;
+    content: "";
+    display: block;
+    left: 0;
+    opacity: 0.2;
+    right: 0;
+    top: 0;
+    height: inherit;
+    width: 100%;
+    position: absolute;
+    background-size: cover;
+    object-fit: cover;
   }
-
 }
 
 @layer base {
-    @font-face {
-      font-family: "Inter";
-      src: url("../assets/Inter-Regular.ttf") format("truetype") ;
-    }
+  @font-face {
+    font-family: "Inter";
+    src: url("../assets/Inter-Regular.ttf") format("truetype");
+  }
 
-  html { 
-    font-family: "Inter", system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  html {
+    font-family: "Inter", system-ui, sans-serif, "Apple Color Emoji",
+      "Segoe UI Emoji", "Segoe UI Symbol";
     font-display: swap;
   }
 
-  ::selection{
-    color: purple; 
+  ::selection {
+    color: purple;
   }
 }
