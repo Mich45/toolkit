@@ -47,8 +47,8 @@ const Preview: React.FC<Tool>  = ({ data }) => {
             </p>
           </div>
         </div>
-          <div className="gap-3 pt-4 pl-0 flex flex-col">
-            <h2 className="text-md font-bold text-gray-400 capitalize hover:underline">
+          <div className=" gap-3 pt-4 pl-0 flex flex-col">
+            <h2 className="z-30 text-md font-bold text-gray-400 capitalize hover:underline">
               {data.title}
             </h2>
           </div>

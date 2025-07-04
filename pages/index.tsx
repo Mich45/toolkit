@@ -99,7 +99,7 @@ const handleCategoryChange = async (e: React.ChangeEvent<HTMLSelectElement>) => 
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-blue-400 to-indigo-400">Discover A Curated Collection of Free Dev Tools.</span>
                     </h1>
                     <p className="text-lg text-zinc-300 max-w-xl leading-relaxed mb-10 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-                        DevTools Hub curates a comprehensive list of powerful, open-source developer tools to help you build, test, and deploy faster. Find your next essential tool today.
+                        DevTools Hub curates a comprehensive list of open-source developer tools to help you with your daily software needs.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
                         <button className="gap-2 whitespace-nowrap shadow group inline-flex h-12 items-center justify-center rounded-lg bg-white px-8 text-base font-medium text-zinc-900 transition-all hover:bg-white/90 hover:shadow-xl ring-1 ring-zinc-300/50 hover:-translate-y-1 duration-300" type="button">
@@ -157,7 +157,7 @@ const handleCategoryChange = async (e: React.ChangeEvent<HTMLSelectElement>) => 
               </div>
             </div>
           <section className="w-full bg-[#121520] h-auto">
-            <div className=" py-10 my-0 mx-auto max-w-6xl justify-items-center toolsWrapper grid-cols-1 grid lg:grid-cols-3 md:max-lg:grid-cols-2 items-center gap-y-12">
+            <div className=" py-10 my-0 mx-auto max-w-[1230px] justify-items-center toolsWrapper grid-cols-1 grid lg:grid-cols-3 md:max-lg:grid-cols-2 items-center gap-y-12">
               <Tools data={searchResults.length ? searchResults : tools} />
             </div>
 
