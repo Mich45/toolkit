@@ -111,9 +111,9 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="2"
+                    strokeLine="round"
+                    strokeLinejoin="round"
                     className="lucide lucide-package-search h-4 w-4 text-teal-400"
                   >
                     <path d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l2-1.14" />
@@ -160,9 +160,9 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="2"
+                      strokeLine="round"
+                      strokeLinejoin="round"
                       className="lucide lucide-arrow-right ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300"
                     >
                       <path d="M5 12h14"></path>
@@ -190,9 +190,9 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="2"
+                      strokeLine="round"
+                      strokeLinejoin="round"
                       className="lucide lucide-code h-6 w-6 text-orange-400"
                     >
                       <polyline points="16 18 22 12 16 6"></polyline>
@@ -208,9 +208,9 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="2"
+                      strokeLine="round"
+                      strokeLinejoin="round"
                       className="lucide lucide-smartphone h-6 w-6 text-emerald-400"
                     >
                       <rect
@@ -233,9 +233,9 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="2"
+                      strokeLine="round"
+                      strokeLinejoin="round"
                       className="lucide lucide-brain h-6 w-6 text-sky-400"
                     >
                       <path d="M12 5a3 3 0 1 0 0 6 3 3 0 1 0 0-6" />
@@ -252,9 +252,9 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="2"
+                      strokeLine="round"
+                      strokeLinejoin="round"
                       className="lucide lucide-bar-chart-2 h-6 w-6 text-rose-400"
                     >
                       <line x1="18" x2="18" y1="20" y2="10"></line>
@@ -271,9 +271,9 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="2"
+                      strokeLine="round"
+                      strokeLinejoin="round"
                       className="lucide lucide-figma h-6 w-6 text-fuchsia-400"
                     >
                       <path d="M5.5 8.5A2.5 2.5 0 0 1 8 6h.5A2.5 2.5 0 0 1 11 8.5v.5H5.5z" />
