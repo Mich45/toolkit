@@ -269,8 +269,8 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="2"
-                  stroke-Linecap="round"
-                  stroke-Linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   className="lucide lucide-pen-tool-icon lucide-pen-tool"
                 >
                   <path d="M15.707 21.293a1 1 0 0 1-1.414 0l-1.586-1.586a1 1 0 0 1 0-1.414l5.586-5.586a1 1 0 0 1 1.414 0l1.586 1.586a1 1 0 0 1 0 1.414z" />
