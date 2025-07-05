@@ -112,7 +112,7 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2"
-                    strokeLine="round"
+                    strokeLinecap="round"
                     strokeLinejoin="round"
                     className="lucide lucide-package-search h-4 w-4 text-teal-400"
                   >
@@ -161,7 +161,7 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="2"
-                      strokeLine="round"
+                      strokeLinecap="round"
                       strokeLinejoin="round"
                       className="lucide lucide-arrow-right ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300"
                     >
@@ -172,7 +172,7 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
                 </button>
                 <a
                   href="#"
-                  class="inline-flex bg-white h-12 items-center justify-center rounded-lg px-8 text-base font-medium text-black transition-all hover:bg-white/90 hover:shadow-xl hover:-translate-y-1 duration-300"
+                  className="inline-flex bg-white h-12 items-center justify-center rounded-lg px-8 text-base font-medium text-black transition-all hover:bg-white/90 hover:shadow-xl hover:-translate-y-1 duration-300"
                 >
                   Submit a Tool
                 </a>
@@ -191,7 +191,7 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="2"
-                      strokeLine="round"
+                      strokeLinecap="round"
                       strokeLinejoin="round"
                       className="lucide lucide-code h-6 w-6 text-orange-400"
                     >
@@ -209,7 +209,7 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="2"
-                      strokeLine="round"
+                      strokeLinecap="round"
                       strokeLinejoin="round"
                       className="lucide lucide-smartphone h-6 w-6 text-emerald-400"
                     >
@@ -234,7 +234,7 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="2"
-                      strokeLine="round"
+                      strokeLinecap="round"
                       strokeLinejoin="round"
                       className="lucide lucide-brain h-6 w-6 text-sky-400"
                     >
@@ -253,7 +253,7 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="2"
-                      strokeLine="round"
+                      strokeLinecap="round"
                       strokeLinejoin="round"
                       className="lucide lucide-bar-chart-2 h-6 w-6 text-rose-400"
                     >
@@ -272,7 +272,7 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="2"
-                      strokeLine="round"
+                      strokeLinecap="round"
                       strokeLinejoin="round"
                       className="lucide lucide-figma h-6 w-6 text-fuchsia-400"
                     >
