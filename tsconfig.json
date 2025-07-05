@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "target": "esnext", // Modern JavaScript
     "lib": [
       "dom",
@@ -17,7 +18,10 @@
     "resolveJsonModule": true, // Allow importing JSON files
     "isolatedModules": true, // One module per file
     "jsx": "preserve", // Use React JSX runtime
-    "incremental": true // Enable incremental builds
+    "incremental": true, // Enable incremental builds
+    "paths": {
+    "@/*": ["./src/*"]
+  },
   },
   "include": [
     "next-env.d.ts",

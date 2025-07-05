@@ -1,4 +1,4 @@
-import { useDebounce } from "../../hooks/useDebounce";
+import { useDebounce } from "../../../hooks/useDebounce";
 import React, { useState, useEffect } from "react";
 
 export interface Tool {
@@ -19,27 +19,27 @@ const Search: React.FC<ToolsProps> = ({ tools, setSearchResults }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const debouncedSearchQuery = useDebounce(searchQuery, 300);
 
-useEffect(() => {
-  if (!debouncedSearchQuery) {
-    setSearchResults(tools);
-    return;
-  }
+  useEffect(() => {
+    if (!debouncedSearchQuery) {
+      setSearchResults(tools);
+      return;
+    }
 
-const filtered = tools.filter((tool) =>
-  tool.title.toLowerCase().includes(debouncedSearchQuery.toLowerCase()) ||
-  tool.description.toLowerCase().includes(debouncedSearchQuery.toLowerCase()) ||
-  tool.category.some((cat) =>
-    cat.toLowerCase().includes(debouncedSearchQuery.toLowerCase())
-  )
-);
+    const filtered = tools.filter(
+      (tool) =>
+        tool.title.toLowerCase().includes(debouncedSearchQuery.toLowerCase()) ||
+        tool.description
+          .toLowerCase()
+          .includes(debouncedSearchQuery.toLowerCase()) ||
+        tool.category.some((cat) =>
+          cat.toLowerCase().includes(debouncedSearchQuery.toLowerCase())
+        )
+    );
 
-
-  setSearchResults(filtered);
-}, [debouncedSearchQuery, tools]);
-
+    setSearchResults(filtered);
+  }, [debouncedSearchQuery, tools]);
 
   const handleSubmit = (e: React.FormEvent) => e.preventDefault();
-
 
   return (
     <header>
@@ -49,7 +49,7 @@ const filtered = tools.filter((tool) =>
           type="text"
           id="search"
           value={searchQuery}
-          onChange={ e => setSearchQuery(e.target.value) }
+          onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Search by category..."
         />
       </form>
