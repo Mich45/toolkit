@@ -8,6 +8,7 @@ import LineSVG from "@/components/LineSVG";
 import Tools from "@/components/Tools";
 import Search from "@/components/Search";
 import * as api from "../lib/controller";
+import Scroll from "@/components/Scroll";
 import AOS from "aos";
 import { SparklesText } from "@/components/magicui/sparkles-text";
 import "aos/dist/aos.css";
@@ -99,7 +100,7 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
 
           <div className="relative z-20 max-w-7xl w-full flex items-center pb-8">
             <section className="flex flex-col items-center text-center px-4">
-              <div className="mb-8 animate-fade-in-up">
+              <div className="mb-8">
                 <div className="font-semibold flex items-center gap-2 rounded-full border border-teal-800/60 bg-teal-950/30 px-4 py-2 text-sm text-teal-300 shadow-lg backdrop-blur-md transition-all duration-300 hover:border-teal-700/80 hover:bg-teal-950/50">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -121,7 +122,7 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
                     <path d="M12 10v12" />
                   </svg>
                   <span className="text-teal-400">
-                    Over 200+ free tools listed!{" "}
+                    Over 200+ free tools and counting!{" "}
                   </span>
                 </div>
               </div>
@@ -137,29 +138,14 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
                 tools to help you with your daily software needs.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8 animate-fade-in-up">
-                <button
+                <a
                   className="gap-2 whitespace-nowrap shadow group inline-flex h-12 items-center justify-center rounded-lg bg-white px-8 text-base font-medium text-zinc-900 transition-all hover:bg-white/90 hover:shadow-xl ring-1 ring-zinc-300/50 hover:-translate-y-1 duration-300"
-                  type="button"
+                  href="#tools"
                 >
                   <span className="relative z-10 flex items-center">
                     Explore All Tools
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="lucide lucide-arrow-right ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300"
-                    >
-                      <path d="M5 12h14"></path>
-                      <path d="m12 5 7 7-7 7"></path>
-                    </svg>
                   </span>
-                </button>
+                </a>
                 <a
                   href="#"
                   className="inline-flex bg-white h-12 items-center justify-center rounded-lg px-8 text-base font-medium text-black transition-all hover:bg-white/90 hover:shadow-xl hover:-translate-y-1 duration-300"
@@ -353,6 +339,7 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
               </div>
             </section>
           </div>
+          {/* <Scroll /> */}
         </section>
         {/* Sidebar and tools section */}
         <div className="z-10 py-2 text-center sticky top-[0px] text-white w-full ">
@@ -366,18 +353,20 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
           <div className="z-50">
             <select
               onChange={handleCategoryChange}
-              className="bg-gray-800 text-white p-2 rounded-md border-none focus:outline-none"
+              className="font-semibold rounded-full border outline-none border-teal-800/60 bg-teal-950/30 px-4 py-2 text-sm text-teal-300 shadow-lg backdrop-blur-md transition-all duration-300 hover:border-teal-700/80 hover:bg-teal-950/50"
             >
-              <option value="all">All Categories</option>
+              <option className="text-white" value="all">
+                All Categories
+              </option>
               {categories.map((cat) => (
-                <option key={cat} value={cat}>
+                <option className="text-white" key={cat} value={cat}>
                   {cat.charAt(0).toUpperCase() + cat.slice(1)}
                 </option>
               ))}
             </select>
           </div>
         </div>
-        <section className="w-full bg-[#121520] h-auto">
+        <section id="tools" className="w-full bg-[#121520] h-auto">
           <div className=" py-10 my-0 mx-auto max-w-[1230px] justify-items-center toolsWrapper grid-cols-1 grid lg:grid-cols-3 md:max-lg:grid-cols-2 items-center gap-y-12">
             <Tools data={searchResults.length ? searchResults : tools} />
           </div>
