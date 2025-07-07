@@ -109,9 +109,9 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
               </div>
               <h1 className="text-5xl md:text-6xl font-extrabold leading-tight tracking-tight text-white mb-6 animate-fade-in-up">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-blue-400 to-indigo-400">
-                  Discover A Curated Collection of{" "}
+                  A Curated Collection of{" "}
                 </span>
-                <SparklesText className="inline">Free Tools.</SparklesText>
+                <SparklesText className="inline">Free Internet Tools.</SparklesText>
               </h1>
 
               <p className="text-lg text-zinc-300 max-w-xl leading-relaxed mb-10 animate-fade-in-up">
