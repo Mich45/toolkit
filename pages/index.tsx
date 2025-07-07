@@ -60,7 +60,7 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
   return (
     <>
       <Head>
-        <title>ToolKit</title>
+        <title>DevTools</title>
         <meta
           name="description"
           content="A collection of useful resources from around the internet."
@@ -69,7 +69,7 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="relative w-full bg-[#080910] content-center ">
-        <section className="relative before-bg-grid min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden pt-32 pb-16">
+        <section className="relative before-bg-grid min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden pt-16 lg:pt-32 sm:pt-32 pb-16">
           <div className="fixed inset-0 overflow-hidden" aria-hidden="true">
             <div className="absolute inset-0 opacity-40 mix-blend-soft-light bg-micro-noise-overlay"></div>
             <div className="absolute inset-0 animated-grid-background"></div>
@@ -102,25 +102,6 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
             <section className="flex flex-col items-center text-center px-4">
               <div className="mb-8">
                 <div className="font-semibold flex items-center gap-2 rounded-full border border-teal-800/60 bg-teal-950/30 px-4 py-2 text-sm text-teal-300 shadow-lg backdrop-blur-md transition-all duration-300 hover:border-teal-700/80 hover:bg-teal-950/50">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="lucide lucide-package-search h-4 w-4 text-teal-400"
-                  >
-                    <path d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l2-1.14" />
-                    <path d="m15 22 2-2 4 4" />
-                    <path d="m17 20 4 4" />
-                    <path d="M12 22v-8" />
-                    <path d="M3.5 5.5 12 10l8.5-4.5" />
-                    <path d="M12 10v12" />
-                  </svg>
                   <span className="text-teal-400">
                     Over 200+ free tools and counting!{" "}
                   </span>

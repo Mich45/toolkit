@@ -3,7 +3,7 @@ import { GitHubIcon } from "../Icons";
 const Footer = () => {
   return (
     <>
-      <div className="h-24 w-full bg-[#080910]">
+      <div className="h-24 w-full z-50 relative bg-[#080910]">
         <div className="lg:mx-[130px] h-full text-sm flex-col flex lg:flex-row lg:justify-between items-center text-gray-300">
           <div className="py-4">
             <p>

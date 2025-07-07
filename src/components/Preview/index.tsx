@@ -63,7 +63,7 @@ const getCategoryColor = (category: string) => {
         target="_blank"
         rel="noreferrer"
         href={data.url}
-        className="block min-w-[380px] max-w-72 hover:scale-105 transition duration-300 ease-in-out group"
+        className="block w-[330px] lg:w-[380px] sm:w-[380px] hover:scale-105 transition duration-300 ease-in-out group"
       >
         <div className="h-[14rem] w-full rounded-[0.8rem] overflow-hidden relative">
           <div className="h-full relative overflow-hidden">
