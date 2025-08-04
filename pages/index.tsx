@@ -105,7 +105,7 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
             <div className="absolute inset-0 bg-gradient-to-b from-[#1F293A]/0 via-[#1F293A]/20 to-[#1F293A]/40"></div>
           </div>
 
-          <div className="relative z-20 max-w-7xl w-full flex items-center pb-8">
+          <div className="relative z-20 max-w-7xl w-full block items-center pb-8">
             <section className="flex flex-col items-center text-center px-4">
               <div className="mb-8">
                 <div className="font-semibold flex items-center gap-2 rounded-full border border-teal-800/60 bg-teal-950/30 px-4 py-2 text-sm text-teal-300 shadow-lg backdrop-blur-md transition-all duration-300 hover:border-teal-700/80 hover:bg-teal-950/50">
