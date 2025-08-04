@@ -347,7 +347,7 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
             </select>
           </div>
         </div>
-        <section id="tools" className="w-full bg-[#121520] h-auto">
+        <section id="tools" className="w-full bg-[#121520] scroll-smooth h-auto">
           <div className=" py-10 my-0 mx-auto max-w-[1230px] justify-items-center toolsWrapper grid-cols-1 grid lg:grid-cols-3 md:max-lg:grid-cols-2 items-center gap-y-12">
             <Tools data={searchResults.length ? searchResults : tools} />
           </div>
