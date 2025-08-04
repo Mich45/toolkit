@@ -14,6 +14,7 @@ import { SparklesText } from "@/components/magicui/sparkles-text";
 import "aos/dist/aos.css";
 import { set } from "mongoose";
 
+
 export interface Tool {
   title: string;
   description: string;
@@ -30,6 +31,12 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  const handleExploreClick = () => {
+  document.getElementById("tools")?.scrollIntoView({
+    behavior: "smooth",
+  });
+};
 
   useEffect(() => {
     setSearchResults(tools);
@@ -121,7 +128,7 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8 animate-fade-in-up">
                 <a
                   className="gap-2 whitespace-nowrap shadow group inline-flex h-12 items-center justify-center rounded-lg bg-white px-8 text-base font-medium text-zinc-900 transition-all hover:bg-white/90 hover:shadow-xl ring-1 ring-zinc-300/50 hover:-translate-y-1 duration-300"
-                  href="#tools"
+                  onClick={handleExploreClick}
                 >
                   <span className="relative z-10 flex items-center">
                     Explore All Tools

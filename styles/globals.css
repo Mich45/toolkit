@@ -75,6 +75,7 @@
     font-family: "Inter", system-ui, sans-serif, "Apple Color Emoji",
       "Segoe UI Emoji", "Segoe UI Symbol";
     font-display: swap;
+    scroll-behavior: smooth;
   }
 
   ::selection {
@@ -140,7 +141,6 @@
     @apply before:content-[''] before:absolute before:inset-0 before:bg-[url('/bgGrid.svg')] before:bg-cover before:bg-repeat before:opacity-40;
   }
 }
-
 
 
 @layer base {
