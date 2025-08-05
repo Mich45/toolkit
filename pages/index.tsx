@@ -9,6 +9,7 @@ import Tools from "@/components/Tools";
 import Search from "@/components/Search";
 import * as api from "../lib/controller";
 import Scroll from "@/components/Scroll";
+import Categories from "@/components/Categories";
 import AOS from "aos";
 import { SparklesText } from "@/components/magicui/sparkles-text";
 import "aos/dist/aos.css";
@@ -30,7 +31,7 @@ export interface HomeProps {
 const Home: React.FC<HomeProps> = ({ tools }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleExploreClick = () => {
   document.getElementById("tools")?.scrollIntoView({
@@ -46,21 +47,19 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
     return Array.from(new Set(tools.flatMap((tool) => tool.category)));
   }, [tools]);
 
-  const handleCategoryChange = async (
-    e: React.ChangeEvent<HTMLSelectElement>
-  ) => {
-    const selectedCategory = e.target.value;
+const handleCategoryChange = async (category: string) => {
+  try {
+    setIsLoading(true);
 
-    try {
-      setLoading(true);
-      const res = await fetch(`/api/tools?category=${selectedCategory}`);
-      const data = await res.json();
-      setSearchResults(data);
-      setLoading(false);
-    } catch (err) {
-      console.error("Failed to fetch tools by category:", err);
-    }
-  };
+    const res = await fetch(`/api/tools?category=${category}`);
+    const data = await res.json();
+    setSearchResults(data);
+  } catch (err) {
+    console.error("Failed to fetch tools by category:", err);
+  } finally {
+    setIsLoading(false);
+  }
+};
 
   const memoizedTools = useMemo(() => tools, []);
 
@@ -330,7 +329,7 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
           {/* <Scroll /> */}
         </section>
         {/* Sidebar and tools section */}
-        <div className="z-10 py-2 text-center sticky top-[0px] text-white w-full ">
+        <div className="z-10 py-2 text-center relative top-[0px] text-white w-full ">
           {/* <div className="mb-5">
                 <Search
                   tools={memoizedTools}
@@ -338,25 +337,17 @@ const Home: React.FC<HomeProps> = ({ tools }) => {
                 />
               </div> */}
 
-          <div className="z-50">
-            <select
-              onChange={handleCategoryChange}
-              className="font-semibold rounded-full border outline-none border-teal-800/60 bg-teal-950/30 px-4 py-2 text-sm text-teal-300 shadow-lg backdrop-blur-md transition-all duration-300 hover:border-teal-700/80 hover:bg-teal-950/50"
-            >
-              <option className="text-white" value="all">
-                All Categories
-              </option>
-              {categories.map((cat) => (
-                <option className="text-white" key={cat} value={cat}>
-                  {cat.charAt(0).toUpperCase() + cat.slice(1)}
-                </option>
-              ))}
-            </select>
-          </div>
         </div>
         <section id="tools" className="w-full bg-[#121520] scroll-smooth h-auto">
-          <div className=" py-10 my-0 mx-auto max-w-[1230px] justify-items-center toolsWrapper grid-cols-1 grid lg:grid-cols-3 md:max-lg:grid-cols-2 items-center gap-y-12">
+          <Categories categories={categories} handler={handleCategoryChange}/>
+          <div className=" py-10 mt-10 my-0 mx-auto max-w-[1230px] justify-items-center toolsWrapper grid-cols-1 grid lg:grid-cols-3 md:max-lg:grid-cols-2 items-center gap-y-12">
+            {isLoading ? (
+            <div className="text-center">
+              <p className="text-white text-7xl">Loading tools...</p>
+            </div>
+          ) : ( 
             <Tools data={searchResults.length ? searchResults : tools} />
+            )}
           </div>
         </section>
       </main>
